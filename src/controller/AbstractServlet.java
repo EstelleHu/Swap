@@ -19,7 +19,7 @@ public class AbstractServlet extends HttpServlet {
 	protected static Properties props;
 	static { 
 		props = new Properties();
-		String path = ConnexionServlet.class.getClassLoader().getResource("configuration.properties").getFile();
+		String path = AbstractServlet.class.getClassLoader().getResource("configuration.properties").getFile();
 		try(FileInputStream fis = new FileInputStream(path)){
 			props.load(fis);
 		}catch(Exception e) {
