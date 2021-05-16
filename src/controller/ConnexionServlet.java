@@ -62,6 +62,7 @@ public class ConnexionServlet extends AbstractServlet {
 				System.out.println(statement);
 				try(ResultSet resultSET = statement.executeQuery()){
 					if(resultSET.next()) {
+						session.setAttribute("idUtilisateur", resultSET.getInt(1));
 						session.setAttribute("isConnected", true);
 						request.getRequestDispatcher("accueil.jsp").forward(request, response);
 					}else {
