@@ -1,7 +1,5 @@
 package controller;
 
-import java.sql.Blob;
-
 public class Product {
 	private int idUtilisateur;
 	private String nom;
@@ -11,7 +9,7 @@ public class Product {
 	private String sousCategorie;
 	private String description;
 	private String etat;
-	private boolean disponibilité;
+	private boolean disponibilite;
 
 	public Product(int idUser, String name, double price, String pic, String category, String subCategory, String description, String state, boolean available) {
 		this.idUtilisateur = idUser;
@@ -22,7 +20,7 @@ public class Product {
 		this.sousCategorie = subCategory;
 		this.description = description;
 		this.etat = state;
-		this.disponibilité = available;
+		this.disponibilite = available;
 	}
 	
 	public Product() {
@@ -32,10 +30,33 @@ public class Product {
 	public String toString() {
 		return "Product : " + this.nom + " prix : " + this.prix + " euros";
 	}
-	
-	public boolean isEmpty() {
-		return this.isEmpty();
-	}
 
+	public String getNom() {
+		return this.nom;
+	}
+	
+	public double getPrix() {
+		return this.prix;
+	}
+	
+	public String getCategorie() {
+		return this.categorie;
+	}
+	
+	public String getSousCategorie() {
+		return this.sousCategorie;
+	}
+	
+	public String getDescription() {
+		return this.description;
+	}
+	
+	public String getEtat() {
+		return this.etat;
+	}
+	
+	public boolean getDispo() {
+		return this.disponibilite;
+	}
 
 }

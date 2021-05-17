@@ -22,14 +22,14 @@ import javax.servlet.http.HttpSession;
 public class ConnexionServlet extends AbstractServlet {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Product> myProducts = new ArrayList<>();
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ConnexionServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ConnexionServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -44,7 +44,7 @@ public class ConnexionServlet extends AbstractServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		myProducts.clear();
-		
+
 		String loginID = request.getParameter("inputEmail");
 		String passwordID = request.getParameter("inputMdp");
 		HttpSession session = request.getSession(true);
@@ -75,7 +75,7 @@ public class ConnexionServlet extends AbstractServlet {
 				try(ResultSet resultSET = statement1.executeQuery()){
 					if(resultSET.next()) {
 						session.setAttribute("isConnected", true);
-						
+
 						request.getRequestDispatcher("accueil.jsp").forward(request, response);
 					}else {
 						session.setAttribute("isConnected", false);

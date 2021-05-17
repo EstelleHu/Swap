@@ -15,7 +15,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
-				src="docs\assets\brand\swap.png" width="80"
+				src="docs\brand\swap.png" width="80"
 				height="30" alt="">
 			</a>
 			<button class="navbar-toggler" type="button"
