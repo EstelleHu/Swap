@@ -9,6 +9,8 @@
 <title>Product Page</title>
 </head>
 <body>
+	<%@include file="header.jsp"%>
+	<br>
 	<% int id = Integer.parseInt(request.getParameter("id"));
 	System.out.println(id);
 	ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
