@@ -38,7 +38,7 @@
 					euros
 				</p>
 				<p class="card-text"><%=p.getDescription()%></p>
-				<a href="#" class="btn btn-success">Voir le produit</a>
+				<a href="productPage.jsp?id=<%=p.getIdProduct()%>" class="btn btn-success">Voir le produit</a>
 			</div>
 		</div>
 		<%

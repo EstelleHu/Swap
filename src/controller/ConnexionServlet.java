@@ -60,7 +60,7 @@ public class ConnexionServlet extends AbstractServlet {
 			PreparedStatement statement = connection.prepareStatement(strSQL);
 			ResultSet result = statement.executeQuery();
 			while(result.next()) {
-				myProducts.add(new Product(result.getInt(2), result.getString(3), result.getDouble(4), result.getString(5), result.getString(6), result.getString(7), result.getString(8), result.getString(9), result.getBoolean(10)));
+				myProducts.add(new Product(result.getInt(1), result.getInt(2), result.getString(3), result.getDouble(4), result.getString(5), result.getString(6), result.getString(7), result.getString(8), result.getString(9), result.getBoolean(10)));
 			}
 			for(Product p : myProducts) {
 				System.out.println(p.toString());

@@ -1,6 +1,7 @@
 package controller;
 
 public class Product {
+	private int idProduct;
 	private int idUtilisateur;
 	private String nom;
 	private double prix;
@@ -11,7 +12,8 @@ public class Product {
 	private String etat;
 	private boolean disponibilite;
 
-	public Product(int idUser, String name, double price, String pic, String category, String subCategory, String description, String state, boolean available) {
+	public Product(int idProduct,int idUser, String name, double price, String pic, String category, String subCategory, String description, String state, boolean available) {
+		this.idProduct = idProduct;
 		this.idUtilisateur = idUser;
 		this.nom = name;
 		this.prix = price;
@@ -57,6 +59,10 @@ public class Product {
 	
 	public boolean getDispo() {
 		return this.disponibilite;
+	}
+	
+	public int getIdProduct() {
+		return this.idProduct;
 	}
 
 }
