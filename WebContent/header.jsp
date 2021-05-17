@@ -117,7 +117,7 @@
 								class="dropdown-item" href="#">Homme</a> <a
 								class="dropdown-item" href="#">Sac</a>
 						</div></li>
-					<li class="nav-item"><a class="nav-link" href="profil.jsp">Profil</a></li>
+					<li class="nav-item"><a href="ProfilServlet" class="nav-link" >Profil</a></li>
 				</ul>
 				<form class="d-flex">
 					<input class="form-control me-2" type="search"

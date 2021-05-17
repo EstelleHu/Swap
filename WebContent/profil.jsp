@@ -8,6 +8,9 @@
 </head>
 <body>
 <%@include file="header.jsp" %>
-profil
+<%if((boolean)session.getAttribute("isConnected")){%>
+		<p>Bienvenue <%=session.getAttribute("idUtilisateur") %></p>
+		<p><%=request.getAttribute("test")%></p>
+	<%}%>
 </body>
 </html>
