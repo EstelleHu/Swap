@@ -1,6 +1,6 @@
 package beans;
 
-import java.awt.image.BufferedImage;
+import java.sql.Blob;
 import java.sql.Date;
 
 public class Utilisateur {
@@ -11,10 +11,17 @@ public class Utilisateur {
 	private Date dateNaissance;
 	private String mail;
 	private String mdp;
+	private String Addresse;
+	public String getAddresse() {
+		return Addresse;
+	}
+	public void setAddresse(String addresse) {
+		Addresse = addresse;
+	}
 	private String codePostal;
 	private String ville;
 	private String telephone;
-	private BufferedImage photo;
+	private Blob photo;
 	public int getId() {
 		return id;
 	}
@@ -69,10 +76,10 @@ public class Utilisateur {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	public BufferedImage getPhoto() {
+	public Blob getPhoto() {
 		return photo;
 	}
-	public void setPhoto(BufferedImage photo) {
+	public void setPhoto(Blob photo) {
 		this.photo = photo;
 	}
 }

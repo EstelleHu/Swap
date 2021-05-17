@@ -53,6 +53,7 @@ public class ConnexionServlet extends AbstractServlet {
 		String loginDB = props.getProperty("jdbc.login");
 		String passwordDB = props.getProperty("jdbc.password");
 		try(Connection connection = DriverManager.getConnection(urlDB, loginDB, passwordDB)){
+			
 			System.out.println("CONNECTED ! ");
 			String strSQL = "select * from utilisateur where mail=? and mdp =?";
 			System.out.println(strSQL);

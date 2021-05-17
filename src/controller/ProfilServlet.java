@@ -44,23 +44,32 @@ public class ProfilServlet extends AbstractServlet {
 		Utilisateur u = new Utilisateur(); 
 		
 		try(Connection connection = DriverManager.getConnection(urlDB, loginDB, passwordDB)){
+			
 			System.out.println("CONNECTED ! ");
 			String strSQL = "SELECT * FROM utilisateur WHERE id=?";
 			System.out.println(strSQL);
 			try(PreparedStatement statement =connection.prepareStatement(strSQL)){
+				
 				statement.setInt(1, (int)session.getAttribute("idUtilisateur"));
 				System.out.println(statement);
 				try(ResultSet resultSET = statement.executeQuery()){
-					if(resultSET.next()) {
+					while(resultSET.next()) {
 						u.setId(resultSET.getInt(1));
-						
-						System.out.println(resultSET.getString(4));
-						request.setAttribute( "test", resultSET.getString(4));
-						request.getRequestDispatcher("profil.jsp").forward(request, response);
-					}else {
-						request.setAttribute( "test", "raté");
+						u.setNom(resultSET.getString(2));
+						u.setPrenom(resultSET.getString(3));
+						u.setDateNaissance(resultSET.getDate(4));
+						u.setMail(resultSET.getString(5));
+						u.setMdp(resultSET.getString(6));
+						u.setAddresse(resultSET.getString(7));
+						u.setCodePostal(resultSET.getString(8));
+						u.setVille(resultSET.getString(9));
+						u.setTelephone(resultSET.getString(10));
+						u.setPhoto(resultSET.getBlob(11));
+						request.setAttribute( "utilisateur", u);
+						System.out.println(u.getCodePostal());
 						request.getRequestDispatcher("profil.jsp").forward(request, response);
 					}
+					
 				}
 			}
 			
