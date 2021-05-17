@@ -17,20 +17,34 @@
 	<br>
 	<h2 align="center">Nos produits en stock</h2>
 	<br>
-	<%
-	ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
-	%>
 	<div class="card-deck">
+		<%
+		ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
+		int i = 0;
+		for (Product p : products) {
+			i ++;
+			if(i > 3){
+				i = 0;%>
+	</div>
+	<div class="card-deck">
+		<%}
+			if (!p.getDispo()) {
+		%>
 		<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-			<img class="card-img-top" src="..." alt="Card image cap">
+			<img class="card-img-top" src="docs\brand\swap.png" alt="Card image cap">
 			<div class="card-body">
-				<h5 class="card-title">Card title</h5>
-				<p class="card-text">This is a longer card with supporting text
-					below as a natural lead-in to additional content. This content is a
-					little bit longer.</p>
-				<a href="#" class="btn btn-primary">Go somewhere</a>
+				<h5 class="card-title"><%=p.getNom()%></h5>
+				<p class="card-text"><%=p.getPrix()%>
+					euros
+				</p>
+				<p class="card-text"><%=p.getDescription()%></p>
+				<a href="#" class="btn btn-success">Voir le produit</a>
 			</div>
 		</div>
+		<%
+		}
+		}
+		%>
 	</div>
 </body>
 </html>
