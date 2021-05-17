@@ -1,14 +1,11 @@
 package controller;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +41,6 @@ public class InscriptionServlet extends AbstractServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nom = request.getParameter("inputNom");
 		String prenom = request.getParameter("inputPrenom");
-		String dateNaissance = request.getParameter("inputDateNaissance");
 		String mail = request.getParameter("inputEmail");
 		String mdp = request.getParameter("inputMdp");
 		String addresse = request.getParameter("inputAdresse");
@@ -73,19 +69,18 @@ public class InscriptionServlet extends AbstractServlet {
 						request.setAttribute("errorDoublon","L'email que vous avez tapé est déjà utilisé.");
 						request.getRequestDispatcher("inscription.jsp").forward(request, response);
 					}else {
-						String strSQLInsert = "insert into utilisateur(nom, prenom, dateNaissance, mail, mdp, addresse, codePostal, ville, telephone) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+						String strSQLInsert = "insert into utilisateur(nom, prenom, mail, mdp, addresse, codePostal, ville, telephone) values (?, ?, ?, ?, ?, ?, ?, ?)";
 						
 						try(PreparedStatement statement2=connection.prepareStatement(strSQLInsert)){
 							try {
 								statement2.setString(1, nom);
 								statement2.setString(2, prenom);
-								statement2.setString(3, dateNaissance);
-								statement2.setString(4, mail);
-								statement2.setString(5, mdp);
-								statement2.setString(6, addresse);
-								statement2.setString(7, codePostal);
-								statement2.setString(8, ville);
-								statement2.setString(9, telephone);
+								statement2.setString(3, mail);
+								statement2.setString(4, mdp);
+								statement2.setString(5, addresse);
+								statement2.setString(6, codePostal);
+								statement2.setString(7, ville);
+								statement2.setString(8, telephone);
 								System.out.println(statement2);
 								statement2.executeQuery();
 							} catch (SQLException e) {

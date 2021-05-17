@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import javax.servlet.ServletException;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/ConnexionServlet")
 public class ConnexionServlet extends AbstractServlet {
 	private static final long serialVersionUID = 1L;
+	private ArrayList<Product> myProducts = new ArrayList<>();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -63,6 +65,7 @@ public class ConnexionServlet extends AbstractServlet {
 				try(ResultSet resultSET = statement.executeQuery()){
 					if(resultSET.next()) {
 						session.setAttribute("isConnected", true);
+						
 						request.getRequestDispatcher("accueil.jsp").forward(request, response);
 					}else {
 						session.setAttribute("isConnected", false);
