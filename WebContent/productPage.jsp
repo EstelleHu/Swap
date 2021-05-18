@@ -44,6 +44,9 @@
 		<div class="row justify-content-md-center">
 			<div class="col-md-auto"><%=toDisplay.getDescription() %></div>
 		</div>
+		<div class="row justify-content-md-center">
+			<button type="button" class="btn btn-success">Demander un échange</button>
+		</div>
 	</div>
 
 </body>
