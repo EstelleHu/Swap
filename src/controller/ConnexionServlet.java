@@ -76,7 +76,7 @@ public class ConnexionServlet extends AbstractServlet {
 					if(resultSET.next()) {
 						session.setAttribute("isConnected", true);
 
-						request.getRequestDispatcher("accueil.jsp").forward(request, response);
+						request.getRequestDispatcher("accueil.jsp?id=accueil").forward(request, response);
 					}else {
 						session.setAttribute("isConnected", false);
 						request.setAttribute("error","Identifiants invalides.");

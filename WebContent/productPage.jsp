@@ -12,7 +12,6 @@
 	<%@include file="header.jsp"%>
 	<br>
 	<% int id = Integer.parseInt(request.getParameter("id"));
-	System.out.println(id);
 	ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
 	int j = 0;
 	for(int i=0; i < products.size(); i++){

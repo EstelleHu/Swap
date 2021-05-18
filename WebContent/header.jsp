@@ -14,9 +14,8 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"> <img
-				src="docs\brand\swap.png" width="80"
-				height="30" alt="">
+			<a class="navbar-brand" href="#"> <img src="docs\brand\swap.png"
+				width="80" height="30" alt="">
 			</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -27,15 +26,15 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="accueil.jsp">Accueil</a></li>
+						aria-current="page" href="accueil.jsp?id=accueil">Accueil</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
 						id="navbarDropdownMenuLink" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">Animaux</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Jeux</a> <a
-								class="dropdown-item" href="#">Accessoires</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Jeux">Jeux</a> <a
+								class="dropdown-item" href="accueil.jsp?id=Accessoires">Accessoires</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -43,9 +42,9 @@
 						aria-haspopup="true" aria-expanded="false">Beauté</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Accessoires</a> <a
-								class="dropdown-item" href="#">Maquillage</a> <a
-								class="dropdown-item" href="#">Electroménager</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Accessoires">Accessoires</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Maquillage">Maquillage</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Electroménager">Electroménager</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -53,9 +52,9 @@
 						aria-haspopup="true" aria-expanded="false">Electroménager</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Bureau</a> <a
-								class="dropdown-item" href="#">Cuisine</a> <a
-								class="dropdown-item" href="#">Salon</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Bureau">Bureau</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Cuisine">Cuisine</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Salon">Salon</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -63,9 +62,9 @@
 						aria-haspopup="true" aria-expanded="false">Jardin</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Accessoires</a> <a
-								class="dropdown-item" href="#">Outils</a> <a
-								class="dropdown-item" href="#">Plantes</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Accessoires">Accessoires</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Outils">Outils</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Plantes">Plantes</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -73,9 +72,11 @@
 						aria-haspopup="true" aria-expanded="false">Jeux</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Jeux PC</a> <a
-								class="dropdown-item" href="#">Jeux de société</a> <a
-								class="dropdown-item" href="#">Jeux vidéos</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Jeux PC">Jeux
+								PC</a> <a class="dropdown-item"
+								href="accueil.jsp?id=Jeux de société">Jeux de société</a> <a
+								class="dropdown-item" href="accueil.jsp?id=Jeux vidéos">Jeux
+								vidéos</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -83,14 +84,15 @@
 						aria-haspopup="true" aria-expanded="false">Livres</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Action</a> <a
-								class="dropdown-item" href="#">BD</a> <a class="dropdown-item"
-								href="#">Classique</a> <a class="dropdown-item" href="#">Enfants</a>
-							<a class="dropdown-item" href="#">Essais</a> <a
-								class="dropdown-item" href="#">Scolaire</a> <a
-								class="dropdown-item" href="#">Romance</a> <a
-								class="dropdown-item" href="#">Théâtre</a> <a
-								class="dropdown-item" href="#">Thriller</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Action">Action</a>
+							<a class="dropdown-item" href="accueil.jsp?id=BD">BD</a> <a
+								class="dropdown-item" href="accueil.jsp?id=Classique">Classique</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Enfants">Enfants</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Essais">Essais</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Scolaire">Scolaire</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Romance">Romance</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Théâtre">Théâtre</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Thriller">Thriller</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -98,11 +100,11 @@
 						aria-haspopup="true" aria-expanded="false">Maison</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Bureau</a> <a
-								class="dropdown-item" href="#">Chambre</a> <a
-								class="dropdown-item" href="#">Cuisine</a> <a
-								class="dropdown-item" href="#">Salle de bain</a> <a
-								class="dropdown-item" href="#">Salon</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Bureau">Bureau</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Chambre">Chambre</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Cuisine">Cuisine</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Salle de bain">Salle
+								de bain</a> <a class="dropdown-item" href="accueil.jsp?id=Salon">Salon</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -110,12 +112,12 @@
 						aria-haspopup="true" aria-expanded="false">Vêtements</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">Chaussures</a> <a
-								class="dropdown-item" href="#">Déguisement</a> <a
-								class="dropdown-item" href="#">Enfant</a> <a
-								class="dropdown-item" href="#">Femme</a> <a
-								class="dropdown-item" href="#">Homme</a> <a
-								class="dropdown-item" href="#">Sac</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Chaussures">Chaussures</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Déguisement">Déguisement</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Enfant">Enfant</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Femme">Femme</a> <a
+								class="dropdown-item" href="accueil.jsp?id=Homme">Homme</a> <a
+								class="dropdown-item" href="accueil.jsp?id=Sac">Sac</a>
 						</div></li>
 					<li class="nav-item"><a class="nav-link" href="profil.jsp">Profil</a></li>
 				</ul>
