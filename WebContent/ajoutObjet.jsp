@@ -41,7 +41,7 @@
 			</div>
 			<div class="mb-3">
 				<label for="formFile" class="form-label">Une jolie photo de votre objet
-				</label> <input class="form-control" type="file" id="formFile">
+				</label> <input class="form-control" type="file" id="formFile" name="formFile" accept="image/*"> 
 			</div>
 
 
