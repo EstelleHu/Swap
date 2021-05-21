@@ -119,7 +119,15 @@
 								class="dropdown-item" href="accueil.jsp?id=Homme">Homme</a> <a
 								class="dropdown-item" href="accueil.jsp?id=Sac">Sac</a>
 						</div></li>
-					<li class="nav-item"><a href="ProfilServlet" class="nav-link" >Profil</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="ProfilServlet"
+						id="navbarDropdownMenuLink" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">Profil</a>
+						<div class="dropdown-menu"
+							aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" href="#">Mes échanges</a>
+							<a class="dropdown-item" href="DeconnexionServlet">Déconnexion</a>
+						</div></li>
 				</ul>
 				<form class="d-flex">
 					<input class="form-control me-2" type="search"
