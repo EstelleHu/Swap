@@ -17,17 +17,21 @@
 	<br>
 	<h2 align="center">Nos produits en stock</h2>
 	<br>
-	<div class="card-deck">
+	
+		
+
+	
 		<%
 		String id = request.getParameter("id");
 		ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
 		int i = 0;
-		if(!(boolean) session.getAttribute("isConnected")){
+		if(session.getAttribute("isConnected")==null || !(boolean) session.getAttribute("isConnected")  ){
 		%>
 			<h2 align="center">Connectez-vous pour voir tous nos produits disponibles à l'échange</h2>
 		<% } else{
-		if (id.equals("accueil")) {
-			for (Product p : products) {
+		if (id.equals("accueil")) {%>
+			<div class="card-deck">
+			<% for (Product p : products) {
 				i++;
 				if (i > 3) {
 			i = 0;
