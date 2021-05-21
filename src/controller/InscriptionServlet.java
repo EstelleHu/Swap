@@ -41,6 +41,10 @@ public class InscriptionServlet extends AbstractServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nom = request.getParameter("inputNom");
 		String prenom = request.getParameter("inputPrenom");
+
+		System.out.println(prenom);
+		String dateNaissance = request.getParameter("inputDateNaissance");
+
 		String mail = request.getParameter("inputEmail");
 		String mdp = request.getParameter("inputMdp");
 		String addresse = request.getParameter("inputAdresse");
@@ -53,6 +57,7 @@ public class InscriptionServlet extends AbstractServlet {
 		String loginDB = props.getProperty("jdbc.login");
 		String passwordDB = props.getProperty("jdbc.password");
 		try(Connection connection = DriverManager.getConnection(urlDB, loginDB, passwordDB)){
+			
 			System.out.println("CONNECTED ! ");
 			
 			String strSQL1 = "SELECT * FROM utilisateur WHERE mail=?";

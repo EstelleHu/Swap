@@ -26,6 +26,13 @@
 					name="inputPrenom" required>
 			</div>
 			<div class="mb-3">
+
+				<label for="inputDateNaissance" class="col-form-label">Date
+					de naissance</label> <input type="date" class="form-control"
+					id="inputDateNaissance" name="inputDateNaissance" required>
+			</div>
+			<div class="mb-3">
+
 				<label for="inputEmail" class="col-form-label">Email</label> <input
 					type="email" class="form-control" id="inputEmail" name="inputEmail"
 					required>

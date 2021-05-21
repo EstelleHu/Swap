@@ -56,6 +56,7 @@ public class ConnexionServlet extends AbstractServlet {
 		String loginDB = props.getProperty("jdbc.login");
 		String passwordDB = props.getProperty("jdbc.password");
 		try(Connection connection = DriverManager.getConnection(urlDB, loginDB, passwordDB)){
+
 			String strSQL = "select * from objet";
 			PreparedStatement statement = connection.prepareStatement(strSQL);
 			ResultSet result = statement.executeQuery();
@@ -65,6 +66,7 @@ public class ConnexionServlet extends AbstractServlet {
 			for(Product p : myProducts) {
 				System.out.println(p.toString());
 			}
+
 			System.out.println("CONNECTED ! ");
 			strSQL = "select * from utilisateur where mail=? and mdp =?";
 			System.out.println(strSQL);
