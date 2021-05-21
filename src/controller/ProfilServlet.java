@@ -64,7 +64,7 @@ public class ProfilServlet extends AbstractServlet {
 						u.setCodePostal(resultSET.getString(8));
 						u.setVille(resultSET.getString(9));
 						u.setTelephone(resultSET.getString(10));
-						u.setPhoto(resultSET.getBlob(11));
+						u.setPhoto(resultSET.getString(11));
 						request.setAttribute( "utilisateur", u);
 						System.out.println(u.getCodePostal());
 						request.getRequestDispatcher("profil.jsp").forward(request, response);

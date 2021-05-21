@@ -120,11 +120,12 @@
 								class="dropdown-item" href="accueil.jsp?id=Sac">Sac</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="ProfilServlet"
+						class="nav-link dropdown-toggle" href="#"
 						id="navbarDropdownMenuLink" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">Profil</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" href="ProfilServlet">Afficher mon profil</a>
 							<a class="dropdown-item" href="#">Mes échanges</a>
 							<a class="dropdown-item" href="DeconnexionServlet">Déconnexion</a>
 						</div></li>

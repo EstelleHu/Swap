@@ -21,7 +21,7 @@ public class Utilisateur {
 	private String codePostal;
 	private String ville;
 	private String telephone;
-	private Blob photo;
+	private String photo;
 	public int getId() {
 		return id;
 	}
@@ -76,10 +76,10 @@ public class Utilisateur {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	public Blob getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
-	public void setPhoto(Blob photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 }
