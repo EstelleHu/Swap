@@ -1,4 +1,4 @@
-package controller;
+package beans;
 
 public class Product {
 	private int idProduct;

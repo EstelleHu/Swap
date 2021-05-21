@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <style type="text/css">
-	a{
-		text-decoration: none;
-		color: white; 
-	}
+a {
+	text-decoration: none;
+	color: white;
+}
 </style>
 
 <title>Profil</title>
@@ -28,12 +28,15 @@
 					width="120" height="120" alt="">
 			</div>
 			<div class="col"><%=uti.getPrenom()%>
-				<%=uti.getNom()%><br> <%=uti.getCodePostal()%> <%=uti.getVille()%></div>
-				<div class="col"></div>
+				<%=uti.getNom()%><br>
+				<%=uti.getCodePostal()%>
+				<%=uti.getVille()%></div>
+			<div class="col"></div>
 			<div class="col">
-				<a href="ajoutObjet.jsp" style="text-decoration:none; color:black;"> <svg xmlns="http://www.w3.org/2000/svg" width="30"
-						height="30" fill="currentColor" class="bi bi-plus-circle"
-						viewBox="0 0 16 16">
+				<a href="ajoutObjet.jsp"
+					style="text-decoration: none; color: black;"> <svg
+						xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+						fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
   <path
 							d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
   <path
@@ -41,10 +44,7 @@
 </svg> Ajoutez un objet !
 				</a>
 			</div>
-			
-			
 		</div>
-		
 	</div>
 
 	<%
