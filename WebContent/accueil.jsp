@@ -46,7 +46,7 @@
 				<p class="card-text"><%=p.getPrix()%>
 					euros
 				</p>
-				<p class="card-text"><%=p.getDescription()%></p>
+				<p class="card-text"><%=p.getCategorie()%></p>
 				<a href="productPage.jsp?id=<%=p.getIdProduct()%>"
 					class="btn btn-success">Voir le produit</a>
 			</div>
@@ -77,7 +77,7 @@
 				<p class="card-text"><%=p.getPrix()%>
 					euros
 				</p>
-				<p class="card-text"><%=p.getDescription()%></p>
+				<p class="card-text"><%=p.getCategorie()%></p>
 				<a href="productPage.jsp?id=<%=p.getIdProduct()%>"
 					class="btn btn-success">Voir le produit</a>
 			</div>
