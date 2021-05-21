@@ -20,19 +20,23 @@
 					required>
 			</div>
 			<div class="mb-3">
-				<label for="inputCat" class="col-form-label">Catégorie</label> <input
-					type="number" class="form-control" id="inputPrix" name="inputPrix"
-					required>
+				<label for="inputCat" class="col-form-label">Catégorie</label> <select
+					class="form-select" aria-label="Default select example">
+					<option selected>Open this select menu</option>
+					<option value="1">Animaux</option>
+					<option value="2">Beauté</option>
+					<option value="3">Three</option>
+				</select>
 			</div>
 			<div class="mb-3">
 				<label for="inputSsCat" class="col-form-label">Sous-catégorie
-					</label> <input type="select" class="form-control"
-					id="inputSsCat" name="inputSsCat" required>
+				</label> <input type="select" class="form-control" id="inputSsCat"
+					name="inputSsCat" required>
 			</div>
 			<div class="mb-3">
-				<label for="inputDescription" class="col-form-label">Description</label> <input
-					type="text" class="form-control" id="inputDescription" name="inputDescription"
-					required>
+				<label for="inputDescription" class="col-form-label">Description</label>
+				<input type="text" class="form-control" id="inputDescription"
+					name="inputDescription" required>
 			</div>
 			<div class="mb-3">
 				<label for="inputEtat" class="form-label">Etat</label> <input
@@ -40,12 +44,13 @@
 					required>
 			</div>
 			<div class="mb-3">
-				<label for="formFile" class="form-label">Une jolie photo de votre objet
-				</label> <input class="form-control" type="file" id="formFile" name="formFile" accept="image/*"> 
+				<label for="formFile" class="form-label">Une jolie photo de
+					votre objet </label> <input class="form-control" type="file" id="formFile"
+					name="formFile" accept="image/*">
 			</div>
 
 
-	<button type="submit" class="btn btn-success">Ajouter cet
+			<button type="submit" class="btn btn-success">Ajouter cet
 		objet</button>
 	</form>
 	</div>
