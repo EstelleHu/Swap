@@ -9,6 +9,7 @@
 </head>
 <body>
 	<%@include file="header.jsp"%>
+	
 	<%	String inscription_msg=(String)request.getAttribute("inscriptionReussie");  
 		if(inscription_msg!=null)
 		out.println("<div class='alert alert-success' role='alert'>"+inscription_msg+"</div>");
@@ -34,6 +35,6 @@
 			<a class="btn btn-success" href="inscription.jsp" role="button">Inscription</a>
 		</form>
 	</div>
-
+<%@include file="footer.jsp"%>
 </body>
 </html>

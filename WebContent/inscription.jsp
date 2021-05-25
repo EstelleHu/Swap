@@ -70,6 +70,6 @@
 			<button type="submit" class="btn btn-success">S'inscrire</button>
 		</form>
 	</div>
-
+<%@include file="footer.jsp"%>
 </body>
 </html>
