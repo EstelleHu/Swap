@@ -28,7 +28,7 @@ import beans.Utilisateur;
 @MultipartConfig(fileSizeThreshold = 1048576, maxFileSize = 10485760, maxRequestSize = 10485760 * 5)
 public class ModifierProfilServlet extends AbstractServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String IMAGES_FOLDER = "/Images/";
+	private static final String IMAGES_FOLDER = "/Images";
 	public String uploadPath;
        
     /**
