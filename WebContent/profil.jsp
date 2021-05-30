@@ -1,14 +1,18 @@
 <%@ page import="beans.Utilisateur" language="java"
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="beans.Product"%>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
 <head>
+
 <meta charset="UTF-8">
 <style type="text/css">
-a {
-	text-decoration: none;
-	color: white;
-}
+
 </style>
 
 <title>Profil</title>
@@ -18,19 +22,28 @@ a {
 	<%
 		if ((boolean) session.getAttribute("isConnected")) {
 		Utilisateur uti = (Utilisateur) request.getAttribute("utilisateur");
+		System.out.println(uti.getPhoto());
 	%>
 	<p></p>
-
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col">
-				<img src="docs\img\default-avatar.jpg" class="img-thumbnail"
+			<%
+			if(uti.getPhoto()==null){
+				uti.setPhoto("docs/img/default-avatar.jpg");
+			}
+			%>
+				<img src=<%= uti.getPhoto() %> class="img-thumbnail"
 					width="120" height="120" alt="">
 			</div>
-			<div class="col"><%=uti.getPrenom()%>
-				<%=uti.getNom()%><br>
+			<div class="col">
+				<h5><%=uti.getPrenom()%>
+					<%=uti.getNom()%>
+				</h5>
+				<br>
 				<%=uti.getCodePostal()%>
-				<%=uti.getVille()%></div>
+				<%=uti.getVille()%>
+			</div>
 			<div class="col"></div>
 			<div class="col">
 				<a href="ajoutObjet.jsp"
@@ -45,11 +58,48 @@ a {
 				</a>
 			</div>
 		</div>
+		<br> <br>
+
+		<h4>La cave au trésor</h4>
+		<hr>
+		<%	ArrayList<Product> products = (ArrayList<Product>) request.getAttribute("myProfilProducts");
+			if (products != null) {
+				%>
+				<div class="card-deck">
+				
+				<%
+				for (Product p : products) {
+					if (p.getDispo() == 0) {
+						System.out.println(p.getImage());
+					%>
+						<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+							<img class="card-img-top" src=<%=p.getImage()%>
+								width="200" height="200"alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title"><%=p.getNom()%></h5>
+								<p class="card-text"><%=p.getPrix()%>
+									euros
+								</p>
+								<p class="card-text"><%=p.getCategorie()%></p>
+								<a href="productPage.jsp?id=<%=p.getIdProduct()%>"
+									class="btn btn-success">Voir le produit</a>
+							</div>
+						</div>
+					
+					<%
+					}
+				}
+				%>
+				</div>
+				<%
+			}
+		}
+		%>
 	</div>
 
-	<%
-		}
-	%>
-<%@include file="footer.jsp"%>
+
+
+
+	<%@include file="footer.jsp"%>
 </body>
 </html>

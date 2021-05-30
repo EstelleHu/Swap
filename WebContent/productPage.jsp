@@ -28,7 +28,8 @@
 	Product toDisplay = products.get(j-1);%>
 	<div class="container">
 		<div class="row justify-content-md-center">
-			<div class="col-md-auto">Photo du produit</div>
+			<div class="col-md-auto"><img class="card-img-top" src=<%=toDisplay.getImage()%>
+				alt=""></div>
 		</div>
 		<div class="row justify-content-md-center">
 			<h3 class="col-md-auto text-success"><strong><%=toDisplay.getNom()%></strong></h3>

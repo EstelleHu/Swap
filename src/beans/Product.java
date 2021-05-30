@@ -10,9 +10,9 @@ public class Product {
 	private String sousCategorie;
 	private String description;
 	private String etat;
-	private boolean disponibilite;
+	private int disponibilite;
 
-	public Product(int idProduct,int idUser, String name, double price, String pic, String category, String subCategory, String description, String state, boolean available) {
+	public Product(int idProduct,int idUser, String name, double price, String pic, String category, String subCategory, String description, String state, int available) {
 		this.idProduct = idProduct;
 		this.idUtilisateur = idUser;
 		this.nom = name;
@@ -29,6 +29,11 @@ public class Product {
 		this.idUtilisateur = -1;
 	}
 	
+	public String getImage() {
+		return image;
+	}
+
+
 	public String toString() {
 		return "Product : " + this.nom + " prix : " + this.prix + " euros";
 	}
@@ -57,7 +62,7 @@ public class Product {
 		return this.etat;
 	}
 	
-	public boolean getDispo() {
+	public int getDispo() {
 		return this.disponibilite;
 	}
 	

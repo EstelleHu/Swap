@@ -42,7 +42,6 @@ public class InscriptionServlet extends AbstractServlet {
 		String nom = request.getParameter("inputNom");
 		String prenom = request.getParameter("inputPrenom");
 
-		System.out.println(prenom);
 		String dateNaissance = request.getParameter("inputDateNaissance");
 
 		String mail = request.getParameter("inputEmail");

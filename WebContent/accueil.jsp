@@ -37,14 +37,15 @@
 			i = 0;
 		%>
 	</div>
-	<div class="card-deck">
+	
 		<%
 		}
-		if (!p.getDispo()) {
+		if (p.getDispo()==0) {
 		%>
+		<div class="card-deck">
 		<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-			<img class="card-img-top" src="docs\brand\swap.png"
-				alt="Card image cap">
+			<img class="card-img-top" src=<%=p.getImage()%>
+				width="200" height="200" alt="Card image cap" >
 			<div class="card-body">
 				<h5 class="card-title"><%=p.getNom()%></h5>
 				<p class="card-text"><%=p.getPrix()%>
@@ -71,11 +72,11 @@
 	<div class="card-deck">
 		<%
 		}
-		if (!p.getDispo() && p.getSousCategorie().equals(id)) {
+		if (p.getDispo()==0 && p.getSousCategorie().equals(id)) {
 		%>
 		<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-			<img class="card-img-top" src="docs\brand\swap.png"
-				alt="Card image cap">
+			<img class="card-img-top" src=<%=p.getImage()%>
+				 width="200" height="200" alt="Card image cap">
 			<div class="card-body">
 				<h5 class="card-title"><%=p.getNom()%></h5>
 				<p class="card-text"><%=p.getPrix()%>
