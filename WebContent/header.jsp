@@ -145,11 +145,7 @@ body {
 						</div></li>
 						<%}%>
 				</ul>
-				<form class="d-flex">
-					<input class="form-control me-2" type="search"
-						placeholder="Research" aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">Rechercher</button>
-				</form>
+
 			</div>
 		</div>
 		
