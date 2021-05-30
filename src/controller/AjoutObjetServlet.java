@@ -60,14 +60,12 @@ public class AjoutObjetServlet extends AbstractServlet {
 		String category = request.getParameter("Category");
 		
 		session.setAttribute("NameProduct", nameProduct);
-		System.out.println(session.getAttribute("NameProduct"));
 		session.setAttribute("Price", price);
-		System.out.println(session.getAttribute("Price"));
 		session.setAttribute("Category", category);
 		
 		for (Part part : request.getParts()) {
-			System.out.println(part.getName());
-			if (part.getName().equals("formFile")) {
+			System.out.println("FOR " + part.getName());
+			if (part.getName().equals("Image")) {
 				System.out.println("PAS dans le if");
 
 				System.out.println(part.getName());
@@ -77,7 +75,7 @@ public class AjoutObjetServlet extends AbstractServlet {
 				nomFichier = nomFichier.substring( nomFichier.lastIndexOf( '/' ) + 1 ).substring( nomFichier.lastIndexOf( '\\' ) + 1 );
 
 				String cheminComplet  = uploadPath + File.separator + nomFichier;
-				System.out.println((cheminComplet));
+				System.out.println("Mon chemin " + (cheminComplet));
 				if(!cheminComplet.equals(image)) {
 					image=cheminComplet;
 				}
@@ -85,7 +83,6 @@ public class AjoutObjetServlet extends AbstractServlet {
 			}
 		}
 		session.setAttribute("Image", image);
-		System.out.println(session.getAttribute("Image"));
 		request.setAttribute("modificationReussie","Vous avez bien modifié vos informations");
 		request.getRequestDispatcher("ajoutObjet2.jsp").forward(request, response);
 	}

@@ -24,8 +24,9 @@
 					placeholder="Prix" required>
 			</div>
 			<div class="form-group">
-				<label for="Image">Photo de l'objet</label> <input type="file"
-					class="form-control-file" id="Image" name="Image">
+				<label for="Image" class="form-label">Une jolie photo de
+					votre produit </label> <input class="form-control" type="file" id="Image"
+					name="Image" accept="image/*" required >
 			</div>
 			<div class="form-group">
 				<label for="Category">Catégorie</label> <select id="Category"

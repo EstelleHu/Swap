@@ -15,12 +15,11 @@
 	<h2 align="center">Ajoutez un article à échanger !</h2>
 	<form action="AjoutProduitServlet" method="POST">
 		<div class="container">
-						<div class="form-group">
+			<div class="form-group">
 				<label for="SubCategory">Sous-Catégorie</label> <select
 					id="SubCategory" name="SubCategory" class="form-control" required>
 					<option selected>Choisissez...</option>
 					<%
-					System.out.println(session.getAttribute("Category"));
 					if (session.getAttribute("Category").equals("Animaux")) {
 					%>
 					<option>Accessoires</option>
@@ -85,8 +84,8 @@
 			</div>
 			<div class="form-group">
 				<label for="Description">Décrivez-nous votre objet !</label> <input
-					type="text" class="form-control" id="Description" name="Description"
-					placeholder="Descriptif..." required>
+					type="text" class="form-control" id="Description"
+					name="Description" placeholder="Descriptif..." required>
 			</div>
 			<div class="form-group">
 				<label for="State">Etat</label> <select id="State" name="State"
@@ -98,7 +97,8 @@
 					<option>A bien vécu</option>
 				</select>
 			</div>
-			<button type="submit" class="btn btn-success">J'ajoute cet objet dans ma cave au trésor !</button>
+			<button type="submit" class="btn btn-success">J'ajoute cet
+				objet dans ma cave au trésor !</button>
 		</div>
 	</form>
 </body>

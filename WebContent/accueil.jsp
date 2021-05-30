@@ -15,85 +15,83 @@
 <body>
 	<%@include file="header.jsp"%>
 	<br>
-	<h2 align="center">Nos produits en stock</h2>
-	<br>
-	
-		
 
-	
-		<%
-		String id = request.getParameter("id");
-		ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
-		int i = 0;
-		if(session.getAttribute("isConnected")==null || !(boolean) session.getAttribute("isConnected")  ){
-		%>
-			<h2 align="center">Connectez-vous pour voir tous nos produits disponibles à l'échange</h2>
-		<% } else{
-		if (id.equals("accueil")) {%>
-			<div class="card-deck">
-			<% for (Product p : products) {
-				i++;
-				if (i > 3) {
-			i = 0;
-		%>
-	</div>
-	
-		<%
-		}
-		if (p.getDispo()==0) {
-		%>
-		<div class="card-deck">
-		<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-			<img class="card-img-top" src=<%=p.getImage()%>
-				width="200" height="200" alt="Card image cap" >
-			<div class="card-body">
-				<h5 class="card-title"><%=p.getNom()%></h5>
-				<p class="card-text"><%=p.getPrix()%>
-					euros
-				</p>
-				<p class="card-text"><%=p.getCategorie()%></p>
-				<a href="productPage.jsp?id=<%=p.getIdProduct()%>"
-					class="btn btn-success">Voir le produit</a>
-			</div>
-		</div>
-
-		<%
-		}
-		}
-		%>
-	</div>
+	<%
+	String id = request.getParameter("id");
+	ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
+	if (session.getAttribute("isConnected") == null || !(boolean) session.getAttribute("isConnected")) {
+	%>
+	<h2 align="center">Connectez-vous pour voir tous nos produits
+		disponibles à l'échange</h2>
 	<%
 	} else {
-	for (Product p : products) {
-		i++;
-		if (i > 3) {
-			i = 0;
 	%>
-	<div class="card-deck">
-		<%
-		}
-		if (p.getDispo()==0 && p.getSousCategorie().equals(id)) {
-		%>
-		<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-			<img class="card-img-top" src=<%=p.getImage()%>
-				 width="200" height="200" alt="Card image cap">
-			<div class="card-body">
-				<h5 class="card-title"><%=p.getNom()%></h5>
-				<p class="card-text"><%=p.getPrix()%>
-					euros
-				</p>
-				<p class="card-text"><%=p.getCategorie()%></p>
-				<a href="productPage.jsp?id=<%=p.getIdProduct()%>"
-					class="btn btn-success">Voir le produit</a>
+	<h2 align="center">Nos produits en stock</h2>
+	<hr>
+	<%
+	if (id.equals("accueil")) {
+	%>
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="row row-cols-1 row-cols-md-3 g-3">
+				<%
+				for (Product p : products) {
+					if (p.getDispo() == 1) {
+				%>
+				<div class="col">
+					<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+						<img class="card-img-top" src=<%=p.getImage()%> width="200"
+							height="200" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title"><%=p.getNom()%></h5>
+							<p class="card-text"><%=p.getPrix()%>
+								euros
+							</p>
+							<p class="card-text"><%=p.getCategorie()%></p>
+							<a href="productPage.jsp?id=<%=p.getIdProduct()%>"
+								class="btn btn-success">Voir le produit</a>
+						</div>
+					</div>
+				</div>
+
+				<%
+				}
+
+				}
+				%>
+			</div>
+			<%
+			} else {
+			for (Product p : products) {
+			%>
+			<div class="row row-cols-1 row-cols-md-3 g-3">
+				<%
+				if (p.getDispo() == 1 && p.getSousCategorie().equals(id)) {
+				%>
+				<div class="col">
+					<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+						<img class="card-img-top" src=<%=p.getImage()%> width="200"
+							height="200" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title"><%=p.getNom()%></h5>
+							<p class="card-text"><%=p.getPrix()%>
+								euros
+							</p>
+							<p class="card-text"><%=p.getCategorie()%></p>
+							<a href="productPage.jsp?id=<%=p.getIdProduct()%>"
+								class="btn btn-success">Voir le produit</a>
+						</div>
+					</div>
+				</div>
+				<%
+				}
+				}
+				}
+				}
+				%>
+
 			</div>
 		</div>
-		<%
-		}
-		}
-		}
-		}
-		%>
-
 	</div>
 	<%@include file="footer.jsp"%>
 </body>

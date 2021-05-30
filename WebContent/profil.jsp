@@ -12,7 +12,6 @@
 
 <meta charset="UTF-8">
 <style type="text/css">
-
 </style>
 
 <title>Profil</title>
@@ -28,13 +27,13 @@
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col">
-			<%
+				<%
 			if(uti.getPhoto()==null){
 				uti.setPhoto("docs/img/default-avatar.jpg");
 			}
 			%>
-				<img src=<%= uti.getPhoto() %> class="img-thumbnail"
-					width="120" height="120" alt="">
+				<img src=<%= uti.getPhoto() %> class="img-thumbnail" width="120"
+					height="120" alt="">
 			</div>
 			<div class="col">
 				<h5><%=uti.getPrenom()%>
@@ -60,41 +59,45 @@
 		</div>
 		<br> <br>
 
-		<h4>La cave au trésor</h4>
+		<h4>La cave aux trésors</h4>
 		<hr>
 		<%	ArrayList<Product> products = (ArrayList<Product>) request.getAttribute("myProfilProducts");
 			if (products != null) {
 				%>
-				<div class="card-deck">
-				
-				<%
+		<div class="row row-cols-1 row-cols-md-3 g-3">
+
+
+			<%
 				for (Product p : products) {
-					if (p.getDispo() == 0) {
+					if (p.getDispo() == 1) {
 						System.out.println(p.getImage());
 					%>
-						<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-							<img class="card-img-top" src=<%=p.getImage()%>
-								width="200" height="200"alt="Card image cap">
-							<div class="card-body">
-								<h5 class="card-title"><%=p.getNom()%></h5>
-								<p class="card-text"><%=p.getPrix()%>
-									euros
-								</p>
-								<p class="card-text"><%=p.getCategorie()%></p>
-								<a href="productPage.jsp?id=<%=p.getIdProduct()%>"
-									class="btn btn-success">Voir le produit</a>
-							</div>
-						</div>
-					
-					<%
+			<div class="col">
+				<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+					<img class="card-img-top" src=<%=p.getImage()%> width="200"
+						height="200" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title"><%=p.getNom()%></h5>
+						<p class="card-text"><%=p.getPrix()%>
+							euros
+						</p>
+						<p class="card-text"><%=p.getCategorie()%></p>
+						<a href="productPage.jsp?id=<%=p.getIdProduct()%>"
+							class="btn btn-success">Voir le produit</a>
+					</div>
+				</div>
+			</div>
+
+			<%
 					}
 				}
 				%>
-				</div>
-				<%
+
+			<%
 			}
 		}
 		%>
+		</div>
 	</div>
 
 
