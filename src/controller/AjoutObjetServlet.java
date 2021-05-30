@@ -3,6 +3,7 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import javax.servlet.http.Part;
  * Servlet implementation class AjoutObjetServlet
  */
 @WebServlet("/AjoutObjetServlet")
+@MultipartConfig(fileSizeThreshold = 1048576, maxFileSize = 10485760, maxRequestSize = 10485760 * 5)
 public class AjoutObjetServlet extends HttpServlet {
 	private static final String IMAGES_FOLDER = "/Images/";
 	public String uploadPath;
@@ -61,6 +63,7 @@ public class AjoutObjetServlet extends HttpServlet {
 					nomFichier = nomFichier.substring( nomFichier.lastIndexOf( '/' ) + 1 ).substring( nomFichier.lastIndexOf( '\\' ) + 1 );
 					
 					String cheminComplet  = uploadPath + File.separator + nomFichier;
+					part.write(cheminComplet);
 					System.out.println((cheminComplet));
 
 			}
