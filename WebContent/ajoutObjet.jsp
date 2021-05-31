@@ -34,13 +34,13 @@
 
 					<option selected>Choisissez...</option>
 					<option>Animaux</option>
-					<option>Beauté</option>
-					<option>Electroménager</option>
+					<option>Beaute</option>
+					<option>Electromenager</option>
 					<option>Jardin</option>
 					<option>Jeux</option>
 					<option>Livres</option>
 					<option>Maison</option>
-					<option>Vêtements</option>
+					<option>Vetements</option>
 				</select>
 			</div>
 			<button type="submit" class="btn btn-success">Suite de

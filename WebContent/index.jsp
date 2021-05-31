@@ -35,6 +35,6 @@
 			<a class="btn btn-success" href="inscription.jsp" role="button">Inscription</a>
 		</form>
 	</div>
-
+	<%@include file="footer.jsp"%>
 </body>
 </html>

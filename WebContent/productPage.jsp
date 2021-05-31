@@ -46,7 +46,7 @@
 			<div class="col-md-auto"><%=toDisplay.getDescription() %></div>
 		</div>
 		<div class="row justify-content-md-center">
-			<button type="button" class="btn btn-success">Demander un échange</button>
+			<a href="demandeEchange.jsp?id=<%=toDisplay.getIdUser()%>" class="btn btn-success btn-block">Demander un échange</a>
 		</div>
 	</div>
 

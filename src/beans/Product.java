@@ -69,5 +69,9 @@ public class Product {
 	public int getIdProduct() {
 		return this.idProduct;
 	}
+	
+	public int getIdUser() {
+		return this.idUtilisateur;
+	}
 
 }

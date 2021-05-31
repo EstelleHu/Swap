@@ -25,11 +25,11 @@
 					<option>Accessoires</option>
 					<option>Jeux</option>
 					<%
-					} else if (session.getAttribute("Category").equals("BeautÃ©")) {
+					} else if (session.getAttribute("Category").equals("Beaute")) {
 					%>
 					<option>Accessoires</option>
 					<option>Maquillage</option>
-					<option>Electroménager</option>
+					<option>Electromenager</option>
 					<%
 					} else if (session.getAttribute("Category").equals("ElectromÃ©nager")) {
 					%>
@@ -46,8 +46,8 @@
 					} else if (session.getAttribute("Category").equals("Jeux")) {
 					%>
 					<option>Jeux PC</option>
-					<option>Jeux de société</option>
-					<option>Jeux vidéos</option>
+					<option>Jeux de societe</option>
+					<option>Jeux videos</option>
 					<%
 					} else if (session.getAttribute("Category").equals("Livres")) {
 					%>
@@ -58,7 +58,7 @@
 					<option>Essais</option>
 					<option>Scolaire</option>
 					<option>Romance</option>
-					<option>Théâtre</option>
+					<option>Theatre</option>
 					<option>Thriller</option>
 					<%
 					} else if (session.getAttribute("Category").equals("Maison")) {
@@ -72,7 +72,7 @@
 					} else {
 					%>
 					<option>Chaussures</option>
-					<option>Déguisements</option>
+					<option>Deguisements</option>
 					<option>Enfant</option>
 					<option>Femme</option>
 					<option>Homme</option>
@@ -92,9 +92,9 @@
 					class="form-control" required>
 					<option selected>Choisissez...</option>
 					<option>Comme neuf</option>
-					<option>Bon état</option>
+					<option>Bon etat</option>
 					<option>Etat correct</option>
-					<option>A bien vécu</option>
+					<option>A bien vecu</option>
 				</select>
 			</div>
 			<button type="submit" class="btn btn-success">J'ajoute cet

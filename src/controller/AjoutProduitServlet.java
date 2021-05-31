@@ -72,7 +72,13 @@ public class AjoutProduitServlet extends AbstractServlet {
 				statement1.setString(7, description);
 				statement1.setString(8, state);
 				statement1.setBoolean(9, true);
-				
+				System.out.println(statement1);
+				statement1.executeQuery();
+
+				session.setAttribute("isAdded", true);
+
+
+				ArrayList<Product> myProducts = new ArrayList<>();
 				strSQL = "select * from objet";
 				PreparedStatement statement = connection.prepareStatement(strSQL);
 				ResultSet result = statement.executeQuery();
@@ -83,22 +89,16 @@ public class AjoutProduitServlet extends AbstractServlet {
 					System.out.println(p.toString());
 				}
 				session.setAttribute("products", myProducts);
+				
+				request.getRequestDispatcher("accueil.jsp?id=accueil").forward(request, response);
 
-				try(ResultSet resultSET = statement1.executeQuery()){
-					if(resultSET.next()) {
-						session.setAttribute("isAdded", true);
-						request.getRequestDispatcher("accueil.jsp?id=accueil").forward(request, response);
-					}else {
-						session.setAttribute("isAdded", false);
-						request.setAttribute("error","Objet non ajouté à la BD");
-						request.getRequestDispatcher("accueil.jsp?id=accueil").forward(request, response);
-					}
-				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException e) {
+		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+			e1.printStackTrace();
+		}}}
 
-}
+

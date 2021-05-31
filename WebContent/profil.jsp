@@ -20,7 +20,7 @@
 	<%@ include file="header.jsp"%>
 	<%
 		if ((boolean) session.getAttribute("isConnected")) {
-		Utilisateur uti = (Utilisateur) request.getAttribute("utilisateur");
+		Utilisateur uti = (Utilisateur) session.getAttribute("utilisateur");
 		System.out.println(uti.getPhoto());
 	%>
 	<p></p>
@@ -61,7 +61,7 @@
 
 		<h4>La cave aux trésors</h4>
 		<hr>
-		<%	ArrayList<Product> products = (ArrayList<Product>) request.getAttribute("myProfilProducts");
+		<%	ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("myProfilProducts");
 			if (products != null) {
 				%>
 		<div class="row row-cols-1 row-cols-md-3 g-3">

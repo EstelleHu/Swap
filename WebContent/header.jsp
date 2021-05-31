@@ -47,17 +47,17 @@ body {
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
 						id="navbarDropdownMenuLink" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">Beauté</a>
+						aria-haspopup="true" aria-expanded="false">Beaute</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item" href="accueil.jsp?id=Accessoires">Accessoires</a>
 							<a class="dropdown-item" href="accueil.jsp?id=Maquillage">Maquillage</a>
-							<a class="dropdown-item" href="accueil.jsp?id=Electroménager">Electroménager</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Electroménager">Electromenager</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
 						id="navbarDropdownMenuLink" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">Electroménager</a>
+						aria-haspopup="true" aria-expanded="false">Electromenager</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item" href="accueil.jsp?id=Bureau">Bureau</a>
@@ -82,9 +82,9 @@ body {
 							aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item" href="accueil.jsp?id=Jeux PC">Jeux
 								PC</a> <a class="dropdown-item"
-								href="accueil.jsp?id=Jeux de société">Jeux de société</a> <a
+								href="accueil.jsp?id=Jeux de société">Jeux de societe</a> <a
 								class="dropdown-item" href="accueil.jsp?id=Jeux vidéos">Jeux
-								vidéos</a>
+								videos</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -99,7 +99,7 @@ body {
 							<a class="dropdown-item" href="accueil.jsp?id=Essais">Essais</a>
 							<a class="dropdown-item" href="accueil.jsp?id=Scolaire">Scolaire</a>
 							<a class="dropdown-item" href="accueil.jsp?id=Romance">Romance</a>
-							<a class="dropdown-item" href="accueil.jsp?id=Théâtre">Théâtre</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Théâtre">Theatre</a>
 							<a class="dropdown-item" href="accueil.jsp?id=Thriller">Thriller</a>
 						</div></li>
 					<li class="nav-item dropdown"><a
@@ -117,11 +117,11 @@ body {
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
 						id="navbarDropdownMenuLink" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">Vêtements</a>
+						aria-haspopup="true" aria-expanded="false">Vetements</a>
 						<div class="dropdown-menu"
 							aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item" href="accueil.jsp?id=Chaussures">Chaussures</a>
-							<a class="dropdown-item" href="accueil.jsp?id=Déguisement">Déguisement</a>
+							<a class="dropdown-item" href="accueil.jsp?id=Déguisement">Deguisement</a>
 							<a class="dropdown-item" href="accueil.jsp?id=Enfant">Enfant</a>
 							<a class="dropdown-item" href="accueil.jsp?id=Femme">Femme</a> <a
 								class="dropdown-item" href="accueil.jsp?id=Homme">Homme</a> <a

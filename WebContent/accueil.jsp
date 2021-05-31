@@ -19,6 +19,7 @@
 	<%
 	String id = request.getParameter("id");
 	ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
+	System.out.println(products);
 	if (session.getAttribute("isConnected") == null || !(boolean) session.getAttribute("isConnected")) {
 	%>
 	<h2 align="center">Connectez-vous pour voir tous nos produits
@@ -60,13 +61,17 @@
 				}
 				%>
 			</div>
-			<%
-			} else {
-			for (Product p : products) {
-			%>
+		</div>
+	</div>
+	<%
+		} else {
+		%>
+	<div class="container">
+		<div class="row align-items-center">
 			<div class="row row-cols-1 row-cols-md-3 g-3">
 				<%
-				if (p.getDispo() == 1 && p.getSousCategorie().equals(id)) {
+				for (Product p : products) {
+					if (p.getDispo() == 1 && p.getSousCategorie().equals(id)) {
 				%>
 				<div class="col">
 					<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
@@ -86,12 +91,14 @@
 				<%
 				}
 				}
-				}
-				}
 				%>
-
 			</div>
 		</div>
+		<%
+			}
+			}
+			%>
+
 	</div>
 	<%@include file="footer.jsp"%>
 </body>

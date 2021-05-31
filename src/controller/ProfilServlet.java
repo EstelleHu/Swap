@@ -84,7 +84,7 @@ public class ProfilServlet extends AbstractServlet {
 						myProfilProducts.add(new Product(resultSET.getInt(1), resultSET.getInt(2), resultSET.getString(3), resultSET.getDouble(4), resultSET.getString(5), resultSET.getString(6), resultSET.getString(7), resultSET.getString(8), resultSET.getString(9), resultSET.getInt(10)));
 					}
 					
-					request.setAttribute("myProfilProducts", myProfilProducts);
+					session.setAttribute("myProfilProducts", myProfilProducts);
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
