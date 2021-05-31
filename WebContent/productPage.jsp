@@ -46,7 +46,7 @@
 			<div class="col-md-auto"><%=toDisplay.getDescription() %></div>
 		</div>
 		<div class="row justify-content-md-center">
-			<a href="demandeEchange.jsp?id=<%=toDisplay.getIdUser()%>" class="btn btn-success btn-block">Demander un échange</a>
+			<a href="demandeEchange.jsp?id=<%=toDisplay.getIdUser()%>" class="btn btn-success btn-block">Demander un échange <%session.setAttribute("productToExchange", toDisplay); %></a>
 		</div>
 	</div>
 

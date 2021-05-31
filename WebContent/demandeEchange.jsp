@@ -22,36 +22,37 @@
 	if ((boolean) session.getAttribute("isConnected")) {
 		ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("myProfilProducts");
 		int id = Integer.parseInt(request.getParameter("id"));
-		if(id == (int) session.getAttribute("idUtilisateur")){
-			%>
-			<br><br>
-			<h4 align="center">Cet objet vous appartient déjà ;)</h4>
-			<h4 align="center">Cherchez d'autres objets à échanger</h4>
-		<%}
-		else if (products != null) {
-			int i = 0;
+		if (id == (int) session.getAttribute("idUtilisateur")) {
+	%>
+	<br>
+	<br>
+	<h4 align="center">Cet objet vous appartient déjà ;)</h4>
+	<h4 align="center">Cherchez d'autres objets à échanger</h4>
+	<%
+	} else if (products != null) {
+	int i = 0;
 	%>
 	<h4 align="center">Que voulez-vous échanger contre cet objet ?</h4>
 	<hr>
-	<div class = "container">
-	<form action="DemandeEchangeServlet" method="POST">
+	<div class="container">
+		<form action="DemandeEchangeServlet" method="POST">
 			<%
 			for (Product p : products) {
 				if (p.getDispo() == 1) {
 			%>
-			<div class="form-check row justify-content-md-center">
-			<input class="form-check-input" type="checkbox" value=""
-				id=<%=i %> name=<%=i %>> <label class="form-check-label"
-				for=<%=i %>> <%=p.getNom() %> </label>
-			</div>
-			<% i = i +1;
+				<div class="form-check">
+				<input class="form-check-input" type="radio" value=""
+					id="chosenProduct" name="chosenProduct"> <label
+					class="form-check-label" for="chosenProduct"> <%=p.getNom()%>
+				</label>
+				</div>
+			<%
 			}
 			}
-			session.setAttribute("nbProduct",i);
 			%>
-			<button type="submit" class="btn btn-success btn-block">Envoyer ma
-				proposition d'échange</button>
-	</form>
+			<button type="submit" class="btn btn-success btn-block">Envoyer
+				ma proposition d'échange</button>
+		</form>
 	</div>
 	<%
 	} else {

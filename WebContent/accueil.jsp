@@ -15,7 +15,10 @@
 <body>
 	<%@include file="header.jsp"%>
 	<br>
-
+	<%	String echange_msg=(String)request.getAttribute("demandeReussie");  
+		if(echange_msg!=null)
+		out.println("<div class='alert alert-success' role='alert'>"+echange_msg+"</div>");
+		 %>
 	<%
 	String id = request.getParameter("id");
 	ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
