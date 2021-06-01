@@ -33,11 +33,12 @@ body {
 	<hr>
 	<%
 	HashMap<Integer, Echange> mesEchanges = (HashMap<Integer, Echange>) session.getAttribute("myExchange");
+	System.out.println(mesEchanges);
 	ArrayList<Product> product = (ArrayList<Product>) session.getAttribute("products");
 	if (mesEchanges.isEmpty()) {
 	%>
 	<h4 align="center">Vous n'avez pas encore d'échanges en cours !</h4>
-	<h4>
+	<h4 align="center">
 		Retrouvez tous les produits de vos rêves <a
 			href="accueil.jsp?id=accueil"> ici</a>
 	</h4>
@@ -88,7 +89,7 @@ body {
 				<td class="table-success"><%=objectDest%></td>
 				<td class="table-success"><%=u.getPrenom()%> <%=u.getNom()%></td>
 				<td class="table-success"><%=e.getDate()%></td>
-				<td class="table-success"><%=e.getDate()%></td>
+				<td class="table-success"><%=e.getPhone()%></td>
 				<td class="table-success"><%=e.getState()%></td>
 				<td class="table-success"><a href="exchangePage.jsp?id=<%=m.getKey()%>"
 					class="btn btn-success">Détail du produit à recevoir</a></td>

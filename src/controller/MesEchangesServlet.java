@@ -56,16 +56,16 @@ public class MesEchangesServlet extends AbstractServlet {
 						u.setTelephone(result1.getString(4));
 						users.put(result1.getInt(1), u);
 					}
-					strSQL = "select * from echange where idDestinataire=?";
+					strSQL = "select * from echange";
 
 					try(PreparedStatement statement = connection.prepareStatement(strSQL)){
-						statement.setInt(1, (int) session.getAttribute("idUtilisateur"));
 						try(ResultSet result = statement.executeQuery()){
 							while(result.next()) {
-								String name = users.get(result.getInt(3)).getPrenom()+" " + users.get(result.getInt(3)).getNom();
-								String phone = users.get(result.getInt(3)).getTelephone();
-								myExchange.put(result.getInt(1), new Echange(result.getInt(3), result.getInt(2), name, phone, result.getInt(4), result.getInt(5), result.getString(7), result.getDate(6)));
-							}
+								if(result.getInt(3) == (int) session.getAttribute("idUtilisateur") || result.getInt(2) == (int) session.getAttribute("idUtilisateur")) {
+									String name = users.get(result.getInt(3)).getPrenom()+" " + users.get(result.getInt(3)).getNom();
+									String phone = users.get(result.getInt(3)).getTelephone();
+									myExchange.put(result.getInt(1), new Echange(result.getInt(3), result.getInt(2), name, phone, result.getInt(4), result.getInt(5), result.getString(7), result.getDate(6)));
+								}}
 							session.setAttribute("users", users);
 							session.setAttribute("myExchange", myExchange);
 							request.getRequestDispatcher("mesEchanges.jsp").forward(request, response);
