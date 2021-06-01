@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import beans.Product;
 
 /**
  * Servlet implementation class AcceptEchangeServlet
@@ -57,6 +60,12 @@ public class AcceptEchangeServlet extends AbstractServlet {
 						try(PreparedStatement statement1 =connection.prepareStatement(strSQL)){
 							statement1.setInt(1, idObjetRec);
 							statement1.executeQuery();
+						}
+						ArrayList<Product> prods = (ArrayList<Product>) session.getAttribute("products");
+						for(Product p : prods) {
+							if(p.getIdProduct() == idObjetDest || p.getIdProduct() == idObjetRec) {
+								prods.remove(p);
+							}
 						}
 					}
 				}

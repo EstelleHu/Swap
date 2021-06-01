@@ -88,8 +88,8 @@ body {
 					<th scope="row" class="table-success"><%=objectEm%></th>
 				<td class="table-success"><%=objectDest%></td>
 				<td class="table-success"><%=u.getPrenom()%> <%=u.getNom()%></td>
-				<td class="table-success"><%=e.getDate()%></td>
 				<td class="table-success"><%=e.getPhone()%></td>
+				<td class="table-success"><%=e.getDate()%></td>
 				<td class="table-success"><%=e.getState()%></td>
 				<td class="table-success"><a href="exchangePage.jsp?id=<%=m.getKey()%>"
 					class="btn btn-success">Détail du produit à recevoir</a></td>

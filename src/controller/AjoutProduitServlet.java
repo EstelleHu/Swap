@@ -85,9 +85,20 @@ public class AjoutProduitServlet extends AbstractServlet {
 				while(result.next()) {
 					myProducts.add(new Product(result.getInt(1), result.getInt(2), result.getString(3), result.getDouble(4), result.getString(5), result.getString(6), result.getString(7), result.getString(8), result.getString(9), result.getInt(10)));
 				}
-				for(Product p : myProducts) {
-					System.out.println(p.toString());
-				}
+				
+				strSQL = "SELECT o.id, o.idUtilisateur, o.nom, o.prix,o.photo, o.categorie,o.sousCategorie,o.etat,o.description, o.disponibilité FROM utilisateur u INNER JOIN objet o ON u.id=o.idUtilisateur WHERE u.id=?";
+				try(PreparedStatement statement2 =connection.prepareStatement(strSQL)){
+
+					statement2.setInt(1, (int)session.getAttribute("idUtilisateur"));
+
+					try(ResultSet resultSET = statement2.executeQuery()){
+						ArrayList<Product> myProd = new ArrayList<>();
+						while(resultSET.next()) {
+							myProd.add(new Product(resultSET.getInt(1), resultSET.getInt(2), resultSET.getString(3), resultSET.getDouble(4), resultSET.getString(5), resultSET.getString(6), resultSET.getString(7), resultSET.getString(8), resultSET.getString(9), resultSET.getInt(10)));
+						}
+						
+						session.setAttribute("myProfilProducts", myProd);
+					}
 				session.setAttribute("products", myProducts);
 				
 				request.getRequestDispatcher("accueil.jsp?id=accueil").forward(request, response);
@@ -99,6 +110,9 @@ public class AjoutProduitServlet extends AbstractServlet {
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		}} catch (SQLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
 		}}}
 
 

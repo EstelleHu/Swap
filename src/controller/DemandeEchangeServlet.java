@@ -25,6 +25,7 @@ import beans.Product;
 @WebServlet("/DemandeEchangeServlet")
 public class DemandeEchangeServlet extends AbstractServlet {
 	private static final long serialVersionUID = 1L;
+	private ArrayList<Product> myProd = new ArrayList<>();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -61,7 +62,7 @@ public class DemandeEchangeServlet extends AbstractServlet {
 				ArrayList<Product> prod = (ArrayList<Product>) session.getAttribute("products");
 				Product toEx = new Product();
 				for(Product p1 : prod){
-					
+
 					if(p1.getNom().equals(chosenProduct)) {
 						System.out.println("Dans le if je suis : " + p1.getIdProduct());
 						toEx = p1;
@@ -76,6 +77,7 @@ public class DemandeEchangeServlet extends AbstractServlet {
 				statement1.setDate(5, sqlDate);
 				statement1.setString(6, "En attente");
 				statement1.executeQuery();
+
 				request.setAttribute("demandeReussie","Votre demande a bien été envoyée ! Surveillez le statut de votre demande dans l'onglet Mes échanges.");
 				request.getRequestDispatcher("accueil.jsp?id=accueil").forward(request, response);
 			} catch (SQLException e) {
@@ -87,4 +89,4 @@ public class DemandeEchangeServlet extends AbstractServlet {
 			e1.printStackTrace();
 		}
 
-	}}
+	} }
