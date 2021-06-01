@@ -25,6 +25,7 @@ import beans.Utilisateur;
 public class ConnexionServlet extends AbstractServlet {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Product> myProducts = new ArrayList<>();
+	private ArrayList<Product> myProfilProducts  = new ArrayList<>();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -69,16 +70,15 @@ public class ConnexionServlet extends AbstractServlet {
 			for(Product p : myProducts) {
 				System.out.println(p.toString());
 			}
-
 			System.out.println("CONNECTED ! ");
 			strSQL = "select * from utilisateur where mail=? and mdp =?";
 			System.out.println(strSQL);
 			Utilisateur u = new Utilisateur(); 
-			try(PreparedStatement statement1 =connection.prepareStatement(strSQL)){
-				statement1.setString(1, loginID);
-				statement1.setString(2, passwordID);
-				System.out.println(statement1);
-				try(ResultSet resultSET = statement1.executeQuery()){
+			try(PreparedStatement statement2 =connection.prepareStatement(strSQL)){
+				statement2.setString(1, loginID);
+				statement2.setString(2, passwordID);
+				System.out.println(statement2);
+				try(ResultSet resultSET = statement2.executeQuery()){
 					if(resultSET.next()) {
 						u.setId(resultSET.getInt(1));
 						u.setNom(resultSET.getString(2));
@@ -94,9 +94,22 @@ public class ConnexionServlet extends AbstractServlet {
 						session.setAttribute( "utilisateur", u);
 						session.setAttribute("idUtilisateur", resultSET.getInt(1));
 						session.setAttribute("isConnected", true);
+						strSQL = "SELECT o.id, o.idUtilisateur, o.nom, o.prix,o.photo, o.categorie,o.sousCategorie,o.etat,o.description, o.disponibilité FROM utilisateur u INNER JOIN objet o ON u.id=o.idUtilisateur WHERE u.id=?";
+						try(PreparedStatement statement1 =connection.prepareStatement(strSQL)){
 
-						request.getRequestDispatcher("accueil.jsp?id=accueil").forward(request, response);
-					}else {
+							statement1.setInt(1, (int)session.getAttribute("idUtilisateur"));
+
+							try(ResultSet resultSET1 = statement1.executeQuery()){
+								while(resultSET1.next()) {
+									myProfilProducts.add(new Product(resultSET1.getInt(1), resultSET1.getInt(2), resultSET1.getString(3), resultSET1.getDouble(4), resultSET1.getString(5), resultSET1.getString(6), resultSET1.getString(7), resultSET1.getString(8), resultSET1.getString(9), resultSET1.getInt(10)));
+								}
+
+								session.setAttribute("myProfilProducts", myProfilProducts);
+							}
+
+
+							request.getRequestDispatcher("accueil.jsp?id=accueil").forward(request, response);}}
+					else {
 						session.setAttribute("isConnected", false);
 						request.setAttribute("error","Identifiants invalides.");
 						request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -108,5 +121,5 @@ public class ConnexionServlet extends AbstractServlet {
 			e.printStackTrace();
 		}
 	}
-
 }
+

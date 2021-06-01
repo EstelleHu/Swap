@@ -47,10 +47,8 @@ public class DemandeEchangeServlet extends AbstractServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String chosenProduct = request.getParameter("chosenProduct");
-
+		System.out.println("Mon produit :" + chosenProduct);
 		HttpSession session = request.getSession();
-
-		session.setAttribute("chosenProduct", chosenProduct);
 
 		String urlDB = props.getProperty("jdbc.url");
 		String loginDB = props.getProperty("jdbc.login");
@@ -60,10 +58,12 @@ public class DemandeEchangeServlet extends AbstractServlet {
 			String strSQL = "insert into echange(idDestinataire,idReceveur, idObjetDest, idObjetRec, dateEchange,etat) values (?, ?, ?,?,?,?)";
 			System.out.println(strSQL);
 			try(PreparedStatement statement1 =connection.prepareStatement(strSQL)){
-				ArrayList<Product> prod = (ArrayList<Product>) session.getAttribute("myProfilProducts");
+				ArrayList<Product> prod = (ArrayList<Product>) session.getAttribute("products");
 				Product toEx = new Product();
 				for(Product p1 : prod){
-					if(p1.getNom().equals((String) session.getAttribute("chosenProduct"))) {
+					
+					if(p1.getNom().equals(chosenProduct)) {
+						System.out.println("Dans le if je suis : " + p1.getIdProduct());
 						toEx = p1;
 					}
 				}

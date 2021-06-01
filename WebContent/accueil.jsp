@@ -19,13 +19,25 @@
 		if(echange_msg!=null)
 		out.println("<div class='alert alert-success' role='alert'>"+echange_msg+"</div>");
 		 %>
+	<%	String acceptEchange_msg=(String)request.getAttribute("acceptEchange");  
+		if(acceptEchange_msg!=null)
+		out.println("<div class='alert alert-success' role='alert'>"+acceptEchange_msg+"</div>");
+		 %>
+	<%	String refusEchange_msg=(String)request.getAttribute("refusEchange");  
+		if(refusEchange_msg!=null)
+		out.println("<div class='alert alert-danger' role='alert'>"+refusEchange_msg+"</div>");
+		 %>
+	<%	String finEchange_msg=(String)request.getAttribute("finEchange");  
+		if(finEchange_msg!=null)
+		out.println("<div class='alert alert-info' role='alert'>"+finEchange_msg+"</div>");
+		 %>
 	<%
 	String id = request.getParameter("id");
 	ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
 	System.out.println(products);
 	if (session.getAttribute("isConnected") == null || !(boolean) session.getAttribute("isConnected")) {
 	%>
-	<h2 align="center">Connectez-vous pour voir tous nos produits
+	<h2 align="center"><a href="index.jsp">Connectez-vous </a> pour voir tous nos produits
 		disponibles à l'échange</h2>
 	<%
 	} else {

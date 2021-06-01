@@ -140,7 +140,7 @@ body {
 							aria-labelledby="navbarDropdownMenuLink">
 							<a class="dropdown-item" href="ProfilServlet">Afficher mon profil</a>
 							<a class="dropdown-item" href="modifierProfil.jsp">Modifier mon profil</a>
-							<a class="dropdown-item" href="#">Mes échanges</a>
+							<a class="dropdown-item" href="MesEchangesServlet">Mes échanges</a>
 							<a class="dropdown-item" href="DeconnexionServlet">Déconnexion</a>
 						</div></li>
 						<%}%>

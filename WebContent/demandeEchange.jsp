@@ -32,6 +32,8 @@
 	} else if (products != null) {
 	int i = 0;
 	%>
+	<br>
+	<br>
 	<h4 align="center">Que voulez-vous échanger contre cet objet ?</h4>
 	<hr>
 	<div class="container">
@@ -40,12 +42,12 @@
 			for (Product p : products) {
 				if (p.getDispo() == 1) {
 			%>
-				<div class="form-check">
-				<input class="form-check-input" type="radio" value=""
+			<div class="form-check">
+				<input class="form-check-input" type="radio" value="<%=p.getNom()%>"
 					id="chosenProduct" name="chosenProduct"> <label
 					class="form-check-label" for="chosenProduct"> <%=p.getNom()%>
 				</label>
-				</div>
+			</div>
 			<%
 			}
 			}
