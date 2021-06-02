@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import beans.Product;
+import beans.Produit;
 
 /**
  * Servlet implementation class AccueilServlet
@@ -23,7 +23,7 @@ import beans.Product;
 @WebServlet("/AjoutProduitServlet")
 public class AjoutProduitServlet extends AbstractServlet {
 	private static final long serialVersionUID = 1L;
-	ArrayList<Product> myProducts = new ArrayList<Product>();
+	ArrayList<Produit> myProducts = new ArrayList<Produit>();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -78,12 +78,12 @@ public class AjoutProduitServlet extends AbstractServlet {
 				session.setAttribute("isAdded", true);
 
 
-				ArrayList<Product> myProducts = new ArrayList<>();
+				ArrayList<Produit> myProducts = new ArrayList<>();
 				strSQL = "select * from objet";
 				PreparedStatement statement = connection.prepareStatement(strSQL);
 				ResultSet result = statement.executeQuery();
 				while(result.next()) {
-					myProducts.add(new Product(result.getInt(1), result.getInt(2), result.getString(3), result.getDouble(4), result.getString(5), result.getString(6), result.getString(7), result.getString(8), result.getString(9), result.getInt(10)));
+					myProducts.add(new Produit(result.getInt(1), result.getInt(2), result.getString(3), result.getDouble(4), result.getString(5), result.getString(6), result.getString(7), result.getString(8), result.getString(9), result.getInt(10)));
 				}
 				
 				strSQL = "SELECT o.id, o.idUtilisateur, o.nom, o.prix,o.photo, o.categorie,o.sousCategorie,o.etat,o.description, o.disponibilité FROM utilisateur u INNER JOIN objet o ON u.id=o.idUtilisateur WHERE u.id=?";
@@ -92,9 +92,9 @@ public class AjoutProduitServlet extends AbstractServlet {
 					statement2.setInt(1, (int)session.getAttribute("idUtilisateur"));
 
 					try(ResultSet resultSET = statement2.executeQuery()){
-						ArrayList<Product> myProd = new ArrayList<>();
+						ArrayList<Produit> myProd = new ArrayList<>();
 						while(resultSET.next()) {
-							myProd.add(new Product(resultSET.getInt(1), resultSET.getInt(2), resultSET.getString(3), resultSET.getDouble(4), resultSET.getString(5), resultSET.getString(6), resultSET.getString(7), resultSET.getString(8), resultSET.getString(9), resultSET.getInt(10)));
+							myProd.add(new Produit(resultSET.getInt(1), resultSET.getInt(2), resultSET.getString(3), resultSET.getDouble(4), resultSET.getString(5), resultSET.getString(6), resultSET.getString(7), resultSET.getString(8), resultSET.getString(9), resultSET.getInt(10)));
 						}
 						
 						session.setAttribute("myProfilProducts", myProd);

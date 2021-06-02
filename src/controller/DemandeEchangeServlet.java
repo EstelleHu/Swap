@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import beans.Product;
+import beans.Produit;
 
 /**
  * Servlet implementation class DemandeEchangeServlet
@@ -25,7 +25,7 @@ import beans.Product;
 @WebServlet("/DemandeEchangeServlet")
 public class DemandeEchangeServlet extends AbstractServlet {
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Product> myProd = new ArrayList<>();
+	private ArrayList<Produit> myProd = new ArrayList<>();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -59,16 +59,16 @@ public class DemandeEchangeServlet extends AbstractServlet {
 			String strSQL = "insert into echange(idDestinataire,idReceveur, idObjetDest, idObjetRec, dateEchange,etat) values (?, ?, ?,?,?,?)";
 			System.out.println(strSQL);
 			try(PreparedStatement statement1 =connection.prepareStatement(strSQL)){
-				ArrayList<Product> prod = (ArrayList<Product>) session.getAttribute("products");
-				Product toEx = new Product();
-				for(Product p1 : prod){
+				ArrayList<Produit> prod = (ArrayList<Produit>) session.getAttribute("products");
+				Produit toEx = new Produit();
+				for(Produit p1 : prod){
 
 					if(p1.getNom().equals(chosenProduct)) {
 						System.out.println("Dans le if je suis : " + p1.getIdProduct());
 						toEx = p1;
 					}
 				}
-				Product p = (Product) session.getAttribute("productToExchange");
+				Produit p = (Produit) session.getAttribute("productToExchange");
 				statement1.setInt(1, (int) session.getAttribute("idUtilisateur"));
 				statement1.setInt(2, p.getIdUser());
 				statement1.setInt(3, toEx.getIdProduct());

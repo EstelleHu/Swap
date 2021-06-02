@@ -1,7 +1,7 @@
 <%@ page import="beans.Utilisateur" language="java"
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="beans.Product"%>
+<%@ page import="beans.Produit"%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet"
@@ -20,9 +20,9 @@
 	<%@ include file="header.jsp"%>
 	<%
 	if ((boolean) session.getAttribute("isConnected")) {
-		ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("myProfilProducts");
-		int id = Integer.parseInt(request.getParameter("id"));
-		if (id == (int) session.getAttribute("idUtilisateur")) {
+			ArrayList<Produit> products = (ArrayList<Produit>) session.getAttribute("myProfilProducts");
+			int id = Integer.parseInt(request.getParameter("id"));
+			if (id == (int) session.getAttribute("idUtilisateur")) {
 	%>
 	<br>
 	<br>
@@ -30,7 +30,7 @@
 	<h4 align="center">Cherchez d'autres objets à échanger</h4>
 	<%
 	} else if (products != null) {
-	int i = 0;
+		int i = 0;
 	%>
 	<br>
 	<br>
@@ -39,8 +39,8 @@
 	<div class="container">
 		<form action="DemandeEchangeServlet" method="POST">
 			<%
-			for (Product p : products) {
-				if (p.getDispo() == 1) {
+			for (Produit p : products) {
+					if (p.getDispo() == 1) {
 			%>
 			<div class="form-check">
 				<input class="form-check-input" type="radio" value="<%=p.getNom()%>"

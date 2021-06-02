@@ -1,6 +1,6 @@
 package beans;
 
-public class Product {
+public class Produit {
 	private int idProduct;
 	private int idUtilisateur;
 	private String nom;
@@ -12,7 +12,7 @@ public class Product {
 	private String etat;
 	private int disponibilite;
 
-	public Product(int idProduct,int idUser, String name, double price, String pic, String category, String subCategory, String description, String state, int available) {
+	public Produit(int idProduct,int idUser, String name, double price, String pic, String category, String subCategory, String description, String state, int available) {
 		this.idProduct = idProduct;
 		this.idUtilisateur = idUser;
 		this.nom = name;
@@ -25,7 +25,7 @@ public class Product {
 		this.disponibilite = available;
 	}
 	
-	public Product() {
+	public Produit() {
 		this.idUtilisateur = -1;
 	}
 	

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import beans.Product;
+import beans.Produit;
 
 /**
  * Servlet implementation class AcceptEchangeServlet
@@ -61,12 +61,12 @@ public class AcceptEchangeServlet extends AbstractServlet {
 							statement1.setInt(1, idObjetRec);
 							statement1.executeQuery();
 						}
-						ArrayList<Product> prods = new ArrayList<Product>();
+						ArrayList<Produit> prods = new ArrayList<Produit>();
 						String strSQL1 = "select * from objet";
 						PreparedStatement statement1 = connection.prepareStatement(strSQL1);
 						ResultSet result = statement.executeQuery();
 						while(result.next()) {
-							prods.add(new Product(result.getInt(1), result.getInt(2), result.getString(3), result.getDouble(4), result.getString(5), result.getString(6), result.getString(7), result.getString(8), result.getString(9), result.getInt(10)));
+							prods.add(new Produit(result.getInt(1), result.getInt(2), result.getString(3), result.getDouble(4), result.getString(5), result.getString(6), result.getString(7), result.getString(8), result.getString(9), result.getInt(10)));
 						}
 						session.setAttribute("products", prods);
 							

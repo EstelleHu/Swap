@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import beans.Product;
+import beans.Produit;
 import beans.Utilisateur;
 
 /**
@@ -24,7 +24,7 @@ import beans.Utilisateur;
 @WebServlet("/ProfilServlet")
 public class ProfilServlet extends AbstractServlet {
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Product> myProfilProducts = new ArrayList<>();   
+	private ArrayList<Produit> myProfilProducts = new ArrayList<>();   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -81,7 +81,7 @@ public class ProfilServlet extends AbstractServlet {
 
 				try(ResultSet resultSET = statement.executeQuery()){
 					while(resultSET.next()) {
-						myProfilProducts.add(new Product(resultSET.getInt(1), resultSET.getInt(2), resultSET.getString(3), resultSET.getDouble(4), resultSET.getString(5), resultSET.getString(6), resultSET.getString(7), resultSET.getString(8), resultSET.getString(9), resultSET.getInt(10)));
+						myProfilProducts.add(new Produit(resultSET.getInt(1), resultSET.getInt(2), resultSET.getString(3), resultSET.getDouble(4), resultSET.getString(5), resultSET.getString(6), resultSET.getString(7), resultSET.getString(8), resultSET.getString(9), resultSET.getInt(10)));
 					}
 					
 					session.setAttribute("myProfilProducts", myProfilProducts);

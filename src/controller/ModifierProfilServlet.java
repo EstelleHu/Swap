@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import beans.Product;
+import beans.Produit;
 import beans.Utilisateur;
 
 /**

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="beans.Echange"%>
-<%@ page import="beans.Product"%>
+<%@ page import="beans.Produit"%>
 <%@ page import="beans.Utilisateur"%>
 <!DOCTYPE html>
 <html>
@@ -33,9 +33,9 @@ body {
 	<hr>
 	<%
 	HashMap<Integer, Echange> mesEchanges = (HashMap<Integer, Echange>) session.getAttribute("myExchange");
-	System.out.println(mesEchanges);
-	ArrayList<Product> product = (ArrayList<Product>) session.getAttribute("products");
-	if (mesEchanges.isEmpty()) {
+		System.out.println(mesEchanges);
+		ArrayList<Produit> product = (ArrayList<Produit>) session.getAttribute("products");
+		if (mesEchanges.isEmpty()) {
 	%>
 	<h4 align="center">Vous n'avez pas encore d'échanges en cours !</h4>
 	<h4 align="center">
@@ -61,16 +61,16 @@ body {
 		<tbody>
 			<%
 			for (Map.Entry<Integer, Echange> m : mesEchanges.entrySet()) {
-				Echange e = m.getValue();
-				String objectDest = "";
-				String objectEm = "";
-				for (Product p : product) {
-					if (p.getIdProduct() == e.getIdMonObjet()) {
-				objectDest = p.getNom();
-					} else if (p.getIdProduct() == e.getIdAutreObjet()) {
-				objectEm = p.getNom();
+					Echange e = m.getValue();
+					String objectDest = "";
+					String objectEm = "";
+					for (Produit p : product) {
+						if (p.getIdProduct() == e.getIdMonObjet()) {
+					objectDest = p.getNom();
+						} else if (p.getIdProduct() == e.getIdAutreObjet()) {
+					objectEm = p.getNom();
+						}
 					}
-				}
 			%>
 			<tr>
 				<%if(e.getIdAutreUser() != (int) session.getAttribute("idUtilisateur")){ %>
@@ -80,7 +80,7 @@ body {
 				<td class="table-success"><%=e.getPhone()%></td>
 				<td class="table-success"><%=e.getDate()%></td>
 				<td class="table-success"><%=e.getState()%></td>
-				<td class="table-success"><a href="exchangePage.jsp?id=<%=m.getKey()%>"
+				<td class="table-success"><a href="pageEchange.jsp?id=<%=m.getKey()%>"
 					class="btn btn-success">Détail du produit à recevoir</a></td>
 				<%} else {
 				HashMap<Integer, Utilisateur> users = (HashMap<Integer, Utilisateur>) session.getAttribute("users");
@@ -91,7 +91,7 @@ body {
 				<td class="table-success"><%=u.getTelephone()%></td>
 				<td class="table-success"><%=e.getDate()%></td>
 				<td class="table-success"><%=e.getState()%></td>
-				<td class="table-success"><a href="exchangePage.jsp?id=<%=m.getKey()%>"
+				<td class="table-success"><a href="pageEchange.jsp?id=<%=m.getKey()%>"
 					class="btn btn-success">Détail du produit à recevoir</a></td>
 				<%}%>
 			</tr>

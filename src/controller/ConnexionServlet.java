@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import beans.Product;
+import beans.Produit;
 import beans.Utilisateur;
 
 /**
@@ -24,8 +24,8 @@ import beans.Utilisateur;
 @WebServlet("/ConnexionServlet")
 public class ConnexionServlet extends AbstractServlet {
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Product> myProducts = new ArrayList<>();
-	private ArrayList<Product> myProfilProducts  = new ArrayList<>();
+	private ArrayList<Produit> myProducts = new ArrayList<>();
+	private ArrayList<Produit> myProfilProducts  = new ArrayList<>();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -48,7 +48,7 @@ public class ConnexionServlet extends AbstractServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		myProducts.clear();
-
+		myProfilProducts.clear();
 		String loginID = request.getParameter("inputEmail");
 		String passwordID = request.getParameter("inputMdp");
 		HttpSession session = request.getSession(true);
@@ -65,9 +65,9 @@ public class ConnexionServlet extends AbstractServlet {
 			PreparedStatement statement = connection.prepareStatement(strSQL);
 			ResultSet result = statement.executeQuery();
 			while(result.next()) {
-				myProducts.add(new Product(result.getInt(1), result.getInt(2), result.getString(3), result.getDouble(4), result.getString(5), result.getString(6), result.getString(7), result.getString(8), result.getString(9), result.getInt(10)));
+				myProducts.add(new Produit(result.getInt(1), result.getInt(2), result.getString(3), result.getDouble(4), result.getString(5), result.getString(6), result.getString(7), result.getString(8), result.getString(9), result.getInt(10)));
 			}
-			for(Product p : myProducts) {
+			for(Produit p : myProducts) {
 				System.out.println(p.toString());
 			}
 			System.out.println("CONNECTED ! ");
@@ -101,7 +101,7 @@ public class ConnexionServlet extends AbstractServlet {
 
 							try(ResultSet resultSET1 = statement1.executeQuery()){
 								while(resultSET1.next()) {
-									myProfilProducts.add(new Product(resultSET1.getInt(1), resultSET1.getInt(2), resultSET1.getString(3), resultSET1.getDouble(4), resultSET1.getString(5), resultSET1.getString(6), resultSET1.getString(7), resultSET1.getString(8), resultSET1.getString(9), resultSET1.getInt(10)));
+									myProfilProducts.add(new Produit(resultSET1.getInt(1), resultSET1.getInt(2), resultSET1.getString(3), resultSET1.getDouble(4), resultSET1.getString(5), resultSET1.getString(6), resultSET1.getString(7), resultSET1.getString(8), resultSET1.getString(9), resultSET1.getInt(10)));
 								}
 
 								session.setAttribute("myProfilProducts", myProfilProducts);

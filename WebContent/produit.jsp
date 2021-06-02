@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="beans.Product"%>
+<%@ page import="beans.Produit"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,16 +16,18 @@
 <body>
 	<%@include file="header.jsp"%>
 	<br>
-	<% int id = Integer.parseInt(request.getParameter("id"));
-	ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
-	int j = 0;
-	for(int i=0; i < products.size(); i++){
-		j = j + 1;
-		if(products.get(i).getIdProduct() == id){
-			break;
+	<%
+	int id = Integer.parseInt(request.getParameter("id"));
+		ArrayList<Produit> products = (ArrayList<Produit>) session.getAttribute("products");
+		int j = 0;
+		for(int i=0; i < products.size(); i++){
+			j = j + 1;
+			if(products.get(i).getIdProduct() == id){
+		break;
+			}
 		}
-	}
-	Product toDisplay = products.get(j-1);%>
+		Produit toDisplay = products.get(j-1);
+	%>
 	<div class="container">
 		<div class="row justify-content-md-center">
 			<div class="col-md-auto"><img class="card-img-top" src=<%=toDisplay.getImage()%>

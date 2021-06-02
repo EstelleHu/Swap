@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page import="beans.Product"%>
+<%@ page import="beans.Produit"%>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet"
@@ -15,27 +15,31 @@
 <body>
 	<%@include file="header.jsp"%>
 	<br>
-	<%	String echange_msg=(String)request.getAttribute("demandeReussie");  
-		if(echange_msg!=null)
-		out.println("<div class='alert alert-success' role='alert'>"+echange_msg+"</div>");
-		 %>
-	<%	String acceptEchange_msg=(String)request.getAttribute("acceptEchange");  
-		if(acceptEchange_msg!=null)
-		out.println("<div class='alert alert-success' role='alert'>"+acceptEchange_msg+"</div>");
-		 %>
-	<%	String refusEchange_msg=(String)request.getAttribute("refusEchange");  
-		if(refusEchange_msg!=null)
-		out.println("<div class='alert alert-danger' role='alert'>"+refusEchange_msg+"</div>");
-		 %>
-	<%	String finEchange_msg=(String)request.getAttribute("finEchange");  
-		if(finEchange_msg!=null)
-		out.println("<div class='alert alert-info' role='alert'>"+finEchange_msg+"</div>");
-		 %>
+	<%
+	String echange_msg=(String)request.getAttribute("demandeReussie");  
+			if(echange_msg!=null)
+			out.println("<div class='alert alert-success' role='alert'>"+echange_msg+"</div>");
+	%>
+	<%
+	String acceptEchange_msg=(String)request.getAttribute("acceptEchange");  
+			if(acceptEchange_msg!=null)
+			out.println("<div class='alert alert-success' role='alert'>"+acceptEchange_msg+"</div>");
+	%>
+	<%
+	String refusEchange_msg=(String)request.getAttribute("refusEchange");  
+			if(refusEchange_msg!=null)
+			out.println("<div class='alert alert-danger' role='alert'>"+refusEchange_msg+"</div>");
+	%>
+	<%
+	String finEchange_msg=(String)request.getAttribute("finEchange");  
+			if(finEchange_msg!=null)
+			out.println("<div class='alert alert-info' role='alert'>"+finEchange_msg+"</div>");
+	%>
 	<%
 	String id = request.getParameter("id");
-	ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
-	System.out.println(products);
-	if (session.getAttribute("isConnected") == null || !(boolean) session.getAttribute("isConnected")) {
+		ArrayList<Produit> products = (ArrayList<Produit>) session.getAttribute("products");
+		System.out.println(products);
+		if (session.getAttribute("isConnected") == null || !(boolean) session.getAttribute("isConnected")) {
 	%>
 	<h2 align="center"><a href="index.jsp">Connectez-vous </a> pour voir tous nos produits
 		disponibles à l'échange</h2>
@@ -51,8 +55,8 @@
 		<div class="row align-items-center">
 			<div class="row row-cols-1 row-cols-md-3 g-3">
 				<%
-				for (Product p : products) {
-					if (p.getDispo() == 1) {
+				for (Produit p : products) {
+							if (p.getDispo() == 1) {
 				%>
 				<div class="col">
 					<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
@@ -64,7 +68,7 @@
 								euros
 							</p>
 							<p class="card-text"><%=p.getCategorie()%></p>
-							<a href="productPage.jsp?id=<%=p.getIdProduct()%>"
+							<a href="produit.jsp?id=<%=p.getIdProduct()%>"
 								class="btn btn-success">Voir le produit</a>
 						</div>
 					</div>
@@ -73,20 +77,20 @@
 				<%
 				}
 
-				}
+						}
 				%>
 			</div>
 		</div>
 	</div>
 	<%
-		} else {
-		%>
+	} else {
+	%>
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="row row-cols-1 row-cols-md-3 g-3">
 				<%
-				for (Product p : products) {
-					if (p.getDispo() == 1 && p.getSousCategorie().equals(id)) {
+				for (Produit p : products) {
+							if (p.getDispo() == 1 && p.getSousCategorie().equals(id)) {
 				%>
 				<div class="col">
 					<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
@@ -98,7 +102,7 @@
 								euros
 							</p>
 							<p class="card-text"><%=p.getCategorie()%></p>
-							<a href="productPage.jsp?id=<%=p.getIdProduct()%>"
+							<a href="produit.jsp?id=<%=p.getIdProduct()%>"
 								class="btn btn-success">Voir le produit</a>
 						</div>
 					</div>

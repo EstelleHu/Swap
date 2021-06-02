@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
-<%@ page import="beans.Product"%>
+<%@ page import="beans.Produit"%>
 <%@ page import="beans.Echange"%>
 <!DOCTYPE html>
 <html>
@@ -19,27 +19,27 @@
 	<br>
 	<%
 	int id = Integer.parseInt(request.getParameter("id"));
-	session.setAttribute("monEchange", id);
-	HashMap<Integer, Echange> h = (HashMap<Integer, Echange>) session.getAttribute("myExchange");
-	Echange e = h.get(id);
-	ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
-	int j = 0;
-	if (e.getIdAutreUser() != (int) session.getAttribute("idUtilisateur")) {
-		for (int i = 0; i < products.size(); i++) {
-			j = j + 1;
-			if (products.get(i).getIdProduct() == e.getIdAutreObjet()) {
-		break;
+		session.setAttribute("monEchange", id);
+		HashMap<Integer, Echange> h = (HashMap<Integer, Echange>) session.getAttribute("myExchange");
+		Echange e = h.get(id);
+		ArrayList<Produit> products = (ArrayList<Produit>) session.getAttribute("products");
+		int j = 0;
+		if (e.getIdAutreUser() != (int) session.getAttribute("idUtilisateur")) {
+			for (int i = 0; i < products.size(); i++) {
+		j = j + 1;
+		if (products.get(i).getIdProduct() == e.getIdAutreObjet()) {
+			break;
+		}
+			}
+		} else {
+			for (int i = 0; i < products.size(); i++) {
+		j = j + 1;
+		if (products.get(i).getIdProduct() == e.getIdMonObjet()) {
+			break;
+		}
 			}
 		}
-	} else {
-		for (int i = 0; i < products.size(); i++) {
-			j = j + 1;
-			if (products.get(i).getIdProduct() == e.getIdMonObjet()) {
-		break;
-			}
-		}
-	}
-	Product toDisplay = products.get(j - 1);
+		Produit toDisplay = products.get(j - 1);
 	%>
 	<div class="container">
 		<div class="row justify-content-md-center">
