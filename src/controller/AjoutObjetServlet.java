@@ -33,7 +33,7 @@ public class AjoutObjetServlet extends AbstractServlet {
 	public void init() throws ServletException {
 		System.out.println("Vérification dossier créé");
 		//uploadPath = getServletContext().getRealPath( IMAGES_FOLDER );
-		uploadPath = "C:\\Users\\estel\\git\\Swap\\WebContent\\docs\\img"; // A modifier avec votre path
+		uploadPath = "C:\\Fac\\Swap\\Swap\\WebContent\\docs\\img"; // A modifier avec votre path
 		System.out.println(uploadPath);
 		File uploadDir = new File( uploadPath );
 		if ( ! uploadDir.exists() ) uploadDir.mkdir();

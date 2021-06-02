@@ -41,7 +41,7 @@ public class ModifierProfilServlet extends AbstractServlet {
     @Override
     public void init() throws ServletException {
     	System.out.println("Vérification dossier créé");
-        uploadPath = "C:\\Users\\estel\\git\\Swap\\WebContent\\docs\\img"; // A modifier avec votre path
+        uploadPath = "C:\\Fac\\Swap\\Swap\\WebContent\\docs\\img"; // A modifier avec votre path
         
         System.out.println(uploadPath);
         File uploadDir = new File( uploadPath );

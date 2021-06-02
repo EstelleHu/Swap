@@ -49,6 +49,9 @@
 			<a href="demandeEchange.jsp?id=<%=toDisplay.getIdUser()%>" class="btn btn-success btn-block">Demander un échange <%session.setAttribute("productToExchange", toDisplay); %></a>
 		</div>
 	</div>
-
+	
+	<%@include file="footer.jsp"%>
+</body>
+</html>
 </body>
 </html>
