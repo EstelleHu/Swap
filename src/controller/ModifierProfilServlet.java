@@ -28,7 +28,7 @@ import beans.Utilisateur;
 @MultipartConfig(fileSizeThreshold = 1048576, maxFileSize = 10485760, maxRequestSize = 10485760 * 5)
 public class ModifierProfilServlet extends AbstractServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String IMAGES_FOLDER = "/Images";
+	//private static final String IMAGES_FOLDER = "/Images";
 	public String uploadPath;
        
     /**
@@ -41,7 +41,7 @@ public class ModifierProfilServlet extends AbstractServlet {
     @Override
     public void init() throws ServletException {
     	System.out.println("Vérification dossier créé");
-        uploadPath = getServletContext().getRealPath( IMAGES_FOLDER );
+        uploadPath = "C:\\Users\\estel\\git\\Swap\\WebContent\\docs\\img"; // A modifier avec votre path
         
         System.out.println(uploadPath);
         File uploadDir = new File( uploadPath );
@@ -72,7 +72,7 @@ public class ModifierProfilServlet extends AbstractServlet {
 		String codePostal = request.getParameter("inputCodePostal");
 		String ville = request.getParameter("inputVille");
 		String telephone = request.getParameter("inputTelephone");
-		String photo = u.getPhoto();
+		String photo = "";
 		if(nom==null || nom.isBlank()) {
 			nom=u.getNom();
 		}
@@ -116,9 +116,9 @@ public class ModifierProfilServlet extends AbstractServlet {
 				String cheminComplet  = uploadPath + File.separator + nomFichier;
 				part.write(cheminComplet);
 				System.out.println((cheminComplet));
-				if(!cheminComplet.equals(photo)) {
-					photo=cheminComplet;
-				}
+				
+				photo="docs/img/"+nomFichier;
+				
 			}
 			
 		}
