@@ -101,5 +101,6 @@
 				objet dans ma cave au trésor !</button>
 		</div>
 	</form>
+	<%@include file="footer.jsp"%>
 </body>
 </html>
